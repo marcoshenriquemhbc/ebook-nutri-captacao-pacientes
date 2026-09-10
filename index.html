@@ -463,14 +463,15 @@
     background:linear-gradient(160deg,var(--sage) 0%, var(--sage-deep) 60%, var(--ink) 100%);
     box-shadow:0 20px 44px rgba(30,42,34,0.22);
   }
-  .video-frame video{
-    width:100%;height:100%;object-fit:cover;display:block;
+  .video-frame iframe{
+    position:absolute;top:0;left:0;width:100%;height:100%;border:0;
   }
   .video-overlay-top{
     position:absolute;top:0;left:0;right:0;
     padding:22px 18px;
     background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
     text-align:left;
+    pointer-events:none;
   }
   .video-overlay-top .selo{
     display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
@@ -482,13 +483,6 @@
     text-shadow:0 2px 8px rgba(0,0,0,.35);
   }
   .video-overlay-top p strong{color:var(--gold-soft);}
-  .play-icon{
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:64px;height:64px;border-radius:50%;
-    background:rgba(255,255,255,.9);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .play-icon svg{width:24px;height:24px;fill:var(--ink);margin-left:3px;}
   /* ---------- BANNER AULA BÔNUS ---------- */
   .aviso-bonus{
     display:flex;align-items:center;gap:12px;text-align:left;
@@ -900,6 +894,7 @@
       <button class="opcao" type="button">Sou recém-formada, ainda não tenho consultório</button>
       <button class="opcao" type="button">Já atendo, mas quero crescer</button>
       <button class="opcao" type="button">Estou migrando de carreira pra nutrição clínica</button>
+      <button class="opcao" type="button">Ainda sou estudante</button>
     </div>
   </div>
 
@@ -908,6 +903,7 @@
     <div class="opcoes">
       <button class="opcao" type="button">Consultório físico</button>
       <button class="opcao" type="button">Atendimento online</button>
+      <button class="opcao" type="button">Ambos (online e presencial)</button>
       <button class="opcao" type="button">Ainda não comecei a atender</button>
     </div>
   </div>
@@ -951,19 +947,12 @@
   <span class="badge-topo">RESULTADO</span>
 
   <div class="video-frame">
-    <!-- [ PLACEHOLDER: troque o src abaixo pelo vídeo real, formato vertical 9:16 estilo reels ] -->
-    <video poster="" controls playsinline>
-      <source src="" type="video/mp4">
-    </video>
-    <div class="play-icon">
-      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-    </div>
+    <iframe src="https://www.youtube.com/embed/5Poijo4eMGI" title="Vídeo de qualificação" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <div class="video-overlay-top">
       <span class="selo">QUALIFICADA ✓</span>
       <p>Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
     </div>
   </div>
-  <p class="placeholder-flag">[ vídeo placeholder: suba o arquivo real em formato reels (9:16) e cole o link no atributo src do vídeo ]</p>
 
   <div class="aviso-bonus">
     <div class="icone">
