@@ -466,6 +466,9 @@
   .video-frame iframe{
     position:absolute;top:0;left:0;width:100%;height:100%;border:0;
   }
+  .video-frame wistia-player{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+  }
   .video-overlay-top{
     background:var(--sage-deep);
     border-radius:12px;
@@ -529,6 +532,18 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+<!-- Wistia Player -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/ls0e8jg37b.js" async type="module"></script>
+<style>
+  wistia-player[media-id='ls0e8jg37b']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ls0e8jg37b/swatch');
+    display: block;
+    filter: blur(5px);
+    padding-top: 56.25%;
+  }
+</style>
 
 </head>
 <body>
@@ -969,7 +984,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   </div>
 
   <div class="video-frame">
-    <iframe src="https://www.youtube.com/embed/SsM_6xSaTQk?autoplay=1&mute=1" title="Vídeo de qualificação" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <wistia-player media-id="ls0e8jg37b" seo="false" aspect="1.7777777777777777"></wistia-player>
   </div>
 
   <div class="aviso-bonus">
