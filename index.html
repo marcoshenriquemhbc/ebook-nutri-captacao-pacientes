@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+
   :root{
     --paper:#F6F3EC;
     --paper-2:#EFEAE0;
@@ -316,29 +317,15 @@
   .recebe-section .placeholder-flag{color:#9aa79c;}
 
   /* ---------- DEPOIMENTOS ---------- */
-  .depoimentos-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  .depoimento-video{
+    max-width:640px;margin:0 auto;
+    position:relative;width:100%;aspect-ratio:16/9;
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 16px 36px rgba(30,42,34,0.15);
+    border:1px solid var(--hair);
   }
-  .depoimento-card{
-    background:#fff;border:1px solid var(--hair);border-radius:12px;
-    padding:28px 26px;box-shadow:0 6px 16px rgba(30,42,34,0.05);
-  }
-  .depoimento-estrelas{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:14px;}
-  .depoimento-texto{
-    font-family:var(--serif);font-style:italic;font-size:16.5px;color:#000;
-    line-height:1.55;margin:0 0 22px;
-  }
-  .depoimento-autor{display:flex;align-items:center;gap:12px;}
-  .depoimento-avatar{
-    flex-shrink:0;width:44px;height:44px;border-radius:50%;
-    background:linear-gradient(145deg,var(--sage) 0%, var(--sage-deep) 100%);
-    color:var(--paper);font-family:var(--serif);font-size:15px;font-weight:600;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .depoimento-nome{font-weight:600;font-size:14.5px;color:#000;}
-  .depoimento-cargo{font-size:13px;color:#000;}
-  @media(max-width:640px){
-    .depoimentos-grid{grid-template-columns:1fr;}
+  .depoimento-video iframe{
+    position:absolute;top:0;left:0;width:100%;height:100%;border:0;
   }
   @media(max-width:700px){
     .recebe-card{flex-direction:column;padding:26px 20px;}
@@ -387,9 +374,153 @@
     .hero h1{font-size:24px;}
     .metrics .card{flex:1 1 100%;}
   }
+
+
+  /* ---------- QUIZ SCREEN ---------- */
+  #quiz-page{
+    display:none;
+    margin:0;background:var(--paper);color:#000;font-family:var(--sans);
+    font-size:17px;line-height:1.6;min-height:100vh;
+    align-items:center;justify-content:center;padding:24px;
+  }
+  #quiz-page.active{display:flex;}
+
+  .quiz-card{
+    width:100%;max-width:560px;background:#fff;border:1px solid var(--hair);
+    border-radius:14px;box-shadow:0 16px 40px rgba(30,42,34,0.10);
+    padding:36px 30px;
+  }
+  .badge{
+    display:inline-block;font-size:13px;font-weight:600;color:var(--sage-deep);
+    background:var(--gold-soft);border:1px solid var(--gold);padding:6px 14px;
+    border-radius:20px;margin-bottom:18px;
+  }
+  h1{font-family:var(--serif);font-size:24px;line-height:1.35;margin:0 0 12px;}
+  .intro p{color:#000;margin:0 0 8px;}
+  .progress-wrap{margin:26px 0 30px;}
+  .progress-bar{height:6px;background:var(--paper-2);border-radius:4px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--sage-deep);width:0%;transition:width .3s ease;}
+  .progress-label{font-size:12.5px;color:var(--ink-soft);margin-top:8px;}
+
+  .step{display:none;}
+  .step.active{display:block;}
+  .step h2{font-family:var(--serif);font-size:20px;margin:0 0 18px;}
+  .opcoes{display:flex;flex-direction:column;gap:10px;}
+  .opcao{
+    display:block;width:100%;text-align:left;background:var(--paper);
+    border:1.5px solid var(--hair);border-radius:8px;padding:14px 16px;
+    font-family:var(--sans);font-size:15.5px;color:#000;cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .opcao:hover{border-color:var(--sage);}
+  .opcao.selecionada{border-color:var(--sage-deep);background:var(--gold-soft);}
+
+  .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
+  .voltar{
+    font-family:var(--sans);font-size:14px;color:var(--ink-soft);
+    background:none;border:none;cursor:pointer;padding:8px 0;
+  }
+  .voltar[disabled]{visibility:hidden;}
+  .avancar{
+    display:inline-block;background:var(--sage-deep);color:var(--paper);
+    font-family:var(--sans);font-weight:600;font-size:15px;padding:13px 26px;
+    border-radius:6px;border:none;cursor:pointer;
+  }
+  .avancar[disabled]{opacity:.4;cursor:not-allowed;}
+  .avancar:hover:not([disabled]){background:var(--ink);}
+
+  @media(max-width:480px){
+    .quiz-card{padding:26px 20px;}
+    h1{font-size:21px;}
+  }
+
+
+  /* ---------- RESULTADO SCREEN ---------- */
+  #resultado-page{
+    display:none;
+    margin:0;background:var(--paper);color:#000;font-family:var(--sans);
+    font-size:17px;line-height:1.6;
+  }
+  #resultado-page.active{display:block;}
+
+  .res-wrap{max-width:460px;margin:0 auto;padding:40px 22px 60px;text-align:center;}
+
+  .badge-topo{
+    display:inline-block;font-size:13px;font-weight:600;color:var(--sage-deep);
+    background:var(--gold-soft);border:1px solid var(--gold);padding:6px 14px;
+    border-radius:20px;margin-bottom:18px;
+  }
+  h1{font-family:var(--serif);font-size:24px;line-height:1.35;margin:0 0 26px;}
+
+  /* ---------- VÍDEO FORMATO REELS ---------- */
+  .video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:9/16;
+    border-radius:16px;
+    overflow:hidden;
+    background:linear-gradient(160deg,var(--sage) 0%, var(--sage-deep) 60%, var(--ink) 100%);
+    box-shadow:0 20px 44px rgba(30,42,34,0.22);
+  }
+  .video-frame video{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .video-overlay-top{
+    position:absolute;top:0;left:0;right:0;
+    padding:22px 18px;
+    background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
+    text-align:left;
+  }
+  .video-overlay-top .selo{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+    color:var(--ink);background:var(--gold-soft);padding:4px 10px;border-radius:14px;
+    margin-bottom:10px;
+  }
+  .video-overlay-top p{
+    color:#fff;font-family:var(--serif);font-size:19px;line-height:1.3;margin:0;
+    text-shadow:0 2px 8px rgba(0,0,0,.35);
+  }
+  .video-overlay-top p strong{color:var(--gold-soft);}
+  .play-icon{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:64px;height:64px;border-radius:50%;
+    background:rgba(255,255,255,.9);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .play-icon svg{width:24px;height:24px;fill:var(--ink);margin-left:3px;}
+  /* ---------- BANNER AULA BÔNUS ---------- */
+  .aviso-bonus{
+    display:flex;align-items:center;gap:12px;text-align:left;
+    background:#fff;border:1px solid var(--hair);border-radius:10px;
+    padding:14px 16px;margin:26px 0 16px;
+    box-shadow:0 6px 16px rgba(30,42,34,0.05);
+  }
+  .aviso-bonus .icone{
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;
+    background:var(--sage-deep);color:var(--gold-soft);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .aviso-bonus p{margin:0;font-size:13.5px;color:#000;line-height:1.4;}
+  .aviso-bonus strong{display:block;font-size:14.5px;color:#000;margin-bottom:2px;}
+
+  /* ---------- BOTÃO WHATSAPP ---------- */
+  .btn-whatsapp{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;background:var(--whatsapp);color:#fff;
+    font-family:var(--sans);font-weight:600;font-size:16.5px;
+    padding:16px 20px;border-radius:8px;text-decoration:none;
+    box-shadow:0 8px 20px rgba(37,211,102,0.3);
+  }
+  .btn-whatsapp:hover{background:#1fb955;}
+  .btn-whatsapp svg{width:22px;height:22px;flex-shrink:0;}
+
+  .instrucao{font-size:13.5px;color:var(--ink-soft);margin-top:14px;}
+
 </style>
 </head>
 <body>
+<div id="sales-page">
+
 
 <!-- ================= HERO ================= -->
 <section class="hero">
@@ -398,7 +529,7 @@
     <h1>Como atrair e fidelizar pacientes todo mês pelo Instagram e virar a nutri de referência da sua cidade sem precisar atender todos os dias</h1>
     <p class="sub">Esse é o método mais eficaz que transforma desconhecido em paciente de acompanhamento que te paga todo mês, e ainda sem precisar recomeçar a agenda do zero toda semana.</p>
     <p class="reforco">Você não precisa apenas de mais seguidores, você precisa de pacientes qualificados com previsibilidade.</p>
-    <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+    <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero baixar o método gratuito</a>
 
     <div class="hero-cover">
       <img class="cover-img" src="https://raw.githubusercontent.com/marcoshenriquemhbc/ebook-nutri-captacao-pacientes/refs/heads/main/Ebook%20capta%C3%A7%C3%A3o%20de%20pacientes.png" alt="Capa do livro Instagram pra Nutricionista">
@@ -414,7 +545,7 @@
         </svg>
       </div>
       <div class="riscado">de R$67,00</div>
-      <div class="num">por R$14,90</div>
+      <div class="num">GRÁTIS</div>
       <div class="lab">acesso ao método completo</div>
     </div>
     <div class="card">
@@ -441,35 +572,12 @@
 </section>
 
 <!-- ================= DEPOIMENTOS ================= -->
-<!-- Nota pro Marcos: depoimentos fictícios de exemplo, só pra visualizar o layout. Troque nome, contexto e texto pelos depoimentos reais antes de publicar. -->
 <section class="block">
   <div class="wrap-wide">
-    <h2 style="text-align:center;max-width:none;margin:0 auto 34px;">O que dizem as nutricionistas que já aplicaram</h2>
-    <div class="depoimentos-grid">
-      <div class="depoimento-card">
-        <div class="depoimento-estrelas">★★★★★</div>
-        <p class="depoimento-texto">"Depoimento fictício de exemplo. Aqui entra a fala real da cliente sobre o resultado que ela teve depois de aplicar o método, no tom de voz dela mesma."</p>
-        <div class="depoimento-autor">
-          <div class="depoimento-avatar">NC</div>
-          <div>
-            <div class="depoimento-nome">Nome da Cliente</div>
-            <div class="depoimento-cargo">Nutricionista, cidade</div>
-          </div>
-        </div>
-      </div>
-      <div class="depoimento-card">
-        <div class="depoimento-estrelas">★★★★★</div>
-        <p class="depoimento-texto">"Segundo depoimento fictício de exemplo. Aqui entra a fala real da segunda cliente, de preferência destacando um resultado ou objeção diferente do primeiro depoimento."</p>
-        <div class="depoimento-autor">
-          <div class="depoimento-avatar">NC</div>
-          <div>
-            <div class="depoimento-nome">Nome da Cliente</div>
-            <div class="depoimento-cargo">Nutricionista, cidade</div>
-          </div>
-        </div>
-      </div>
+    <h2 style="text-align:center;max-width:none;margin:0 auto 34px;">O que dizem as profissionais que já aplicaram</h2>
+    <div class="depoimento-video">
+      <iframe src="https://www.youtube.com/embed/SsM_6xSaTQk" title="Depoimento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-    <p class="placeholder-flag">[ depoimentos fictícios, só de exemplo pro layout. Me manda o texto real que eu troco. ]</p>
   </div>
 </section>
 
@@ -500,7 +608,7 @@
           <li>✓ O passo a passo completo pra estruturar seu Instagram como porta de entrada de paciente.</li>
           <li>✓ O roteiro de condução de direct até o fechamento do plano de acompanhamento.</li>
           <li>✓ Como migrar de consulta avulsa pra plano recorrente sem perder paciente atual.</li>
-          <li>✓ Acesso imediato em PDF, direto no seu e-mail após a compra.</li>
+          <li>✓ Acesso imediato em PDF, direto no seu e-mail após o cadastro.</li>
         </ul>
       </div>
       <div class="recebe-imagem">
@@ -508,35 +616,9 @@
       </div>
     </div>
 
-    <p class="placeholder-flag">[ este é o card principal ]</p>
-
-    <div class="bonus-row">
-      <div class="bonus-card">
-        <h3>BÔNUS: Curso Online<br>"Nome do Curso Bônus 1"<br>(Acesso Vitalício)</h3>
-        <ul class="check-recebe">
-          <li>✓ [ placeholder: primeiro tópico do curso bônus 1 ]</li>
-          <li>✓ [ placeholder: segundo tópico do curso bônus 1 ]</li>
-          <li>✓ [ placeholder: terceiro tópico do curso bônus 1 ]</li>
-          <li>✓ [ placeholder: quarto tópico do curso bônus 1 ]</li>
-        </ul>
-      </div>
-      <div class="bonus-plus">+</div>
-      <div class="bonus-card">
-        <h3>BÔNUS: Curso Online<br>"Nome do Curso Bônus 2"<br>(Acesso por 90 dias)</h3>
-        <ul class="check-recebe">
-          <li>✓ [ placeholder: primeiro tópico do curso bônus 2 ]</li>
-          <li>✓ [ placeholder: segundo tópico do curso bônus 2 ]</li>
-          <li>✓ [ placeholder: terceiro tópico do curso bônus 2 ]</li>
-          <li>✓ [ placeholder: quarto tópico do curso bônus 2 ]</li>
-        </ul>
-      </div>
-    </div>
-
     <div style="text-align:center;margin-top:40px;">
-      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método + os bônus agora</a>
+      <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero baixar o método gratuito</a>
     </div>
-
-    <p class="placeholder-flag">[ os dois cards de bônus acima e os tópicos de cada um são placeholder. Me manda o nome dos cursos e os tópicos reais que eu troco. ]</p>
   </div>
 </section>
 
@@ -608,7 +690,7 @@
       <p>Vai terminar com um roteiro que dá pra aplicar direto na sua bio, no seu feed e na próxima conversa de direct.</p>
       <p>Depois de aplicar, você vai conseguir estruturar sua bio e seus destaques com direcionamento claro pra agendamento, planejar conteúdo sem passar horas pensando no que postar, conduzir uma conversa de direct até o fechamento sem parecer forçada, e apresentar um plano de acompanhamento de um jeito que a paciente entenda o valor, em vez de comparar com o preço de uma consulta avulsa.</p>
       <div style="text-align:center;margin-top:30px;">
-        <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+        <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero baixar o método gratuito</a>
       </div>
     </div>
   </div>
@@ -669,7 +751,7 @@
       <p>O método não é sobre virar vendedora agressiva. É sobre mostrar o trabalho que você já faz bem, de um jeito que naturalmente leva a pessoa a querer marcar consulta. Vender fica mais fácil quando você para de vender consulta avulsa e passa a oferecer acompanhamento, porque aí a conversa é sobre cuidado contínuo, não sobre empurrar produto.</p>
     </div>
     <div style="text-align:center;margin-top:34px;">
-      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+      <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero baixar o método gratuito</a>
     </div>
   </div>
 </section>
@@ -709,7 +791,7 @@
     <div class="autor-box">
       <img class="autor-foto" src="https://raw.githubusercontent.com/marcoshenriquemhbc/ebook-nutri-captacao-pacientes/refs/heads/main/WhatsApp%20Image%202026-07-04%20at%206.52.54%20PM.jpeg" alt="Marcos Henrique">
       <div class="autor-texto">
-        <p class="eyebrow">QUEM ESCREVEU ESSE MÉTODO</p>
+        <p class="eyebrow">SOBRE O AUTOR</p>
         <h2 style="margin:8px 0 14px;">Marcos Henrique</h2>
         <p>Marcos Henrique é especialista em marketing digital há mais de 10 anos, com atuação em tráfego pago (Meta Ads e Google Ads), funis de vendas e copywriting. É criador do Sistema POC™ (Posicionamento, Oferta, Campanha), metodologia própria de estruturação de oferta, e atua como consultor independente, tendo nutricionistas como um dos principais nichos com que trabalha.</p>
         <p style="margin-bottom:0;">Esse livro online nasce da mesma lógica que ele aplica com seus clientes: separar o que trava a atração, a estrutura do Instagram, do que trava a venda, o modelo de consulta avulsa, e resolver as duas coisas juntas.</p>
@@ -730,30 +812,20 @@
 <!-- ================= OFERTA ================= -->
 <section class="block tint" id="oferta">
   <div class="wrap">
-    <h2 style="text-align:center;max-width:none;">Tudo isso por apenas R$14,90</h2>
+    <h2 style="text-align:center;max-width:none;">Acesso gratuito, é só clicar</h2>
     <div class="oferta-box" style="margin-top:24px;">
       <div class="valor-riscado">de R$67,00</div>
-      <div class="valor-final">R$14,90</div>
-      <div class="valor-legenda">pagamento único, sem mensalidade</div>
+      <div class="valor-final">GRÁTIS</div>
+      <div class="valor-legenda">sem pagamento, sem cartão</div>
       <ul class="recebe-list">
         <li>✓ Livro online completo em PDF, com o passo a passo de estruturação do Instagram e o roteiro de condução até o fechamento do plano de acompanhamento</li>
-        <li>✓ Acesso imediato após a confirmação da compra, direto no seu e-mail</li>
+        <li>✓ Acesso imediato após o clique, direto no seu e-mail</li>
       </ul>
-      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener" style="margin-top:26px;">Quero aplicar esse método na minha agenda</a>
-      <p class="seguro">Pagamento processado com segurança pela Hotmart</p>
+      <a href="#quiz" class="btn" onclick="goToQuiz(event)" style="margin-top:26px;">Quero baixar o método gratuito</a>
     </div>
     <p style="text-align:center;margin-top:20px;color:#000;font-size:14px;">
-      Você está levando o método completo por um valor menor do que o de uma única consulta que já foi perdida por falta de agenda cheia.
+      Sem custo, sem letra miúda. Clique, confirme seu e-mail e o material já é seu.
     </p>
-  </div>
-</section>
-
-<!-- ================= GARANTIA ================= -->
-<section class="block quem-section">
-  <div class="wrap" style="text-align:center;">
-    <div class="garantia-selo"><img src="https://raw.githubusercontent.com/marcoshenriquemhbc/ebook-nutri-captacao-pacientes/refs/heads/main/Garantia-de-7-dias-Risco-ZERO.png" alt="Garantia de 7 dias, risco zero"></div>
-    <h2 style="max-width:none;">Risco zero pra você decidir agora</h2>
-    <p style="max-width:52ch;margin:0 auto;">Esse é um material digital: assim que a compra é confirmada, o PDF completo já está com você. Se por qualquer motivo o método não fizer sentido pra sua realidade, é só pedir o reembolso dentro do prazo de garantia mostrado no checkout, sem burocracia nenhuma, e o livro online continua com você mesmo assim. Não existe motivo real pra adiar essa decisão: o risco de testar é zero.</p>
   </div>
 </section>
 
@@ -780,7 +852,7 @@
     </details>
     <details>
       <summary>Como eu recebo o material depois de comprar?</summary>
-      <p>Acesso liberado direto no seu e-mail assim que a compra é confirmada.</p>
+      <p>Acesso liberado direto no seu e-mail assim que você clica no botão abaixo.</p>
     </details>
   </div>
 </section>
@@ -792,7 +864,7 @@
     <p>Você já sabe atender bem. Isso nunca foi o problema.</p>
     <p>O problema é continuar esperando que indicação e post solto resolvam algo que só se resolve com estrutura.</p>
     <p>Um Instagram que atrai quem está pronto pra fechar, e um modelo de venda que transforma isso em faturamento previsível, não em sorte mensal.</p>
-    <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+    <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero baixar o método gratuito</a>
   </div>
 </section>
 
@@ -802,5 +874,177 @@
   </div>
 </footer>
 
+
+</div>
+
+<div id="quiz-page">
+
+
+<div class="quiz-card">
+  <div class="intro" id="intro-block">
+    <span class="badge">MATERIAL PREMIUM LIBERADO POR TEMPO LIMITADO</span>
+    <h1>Esse material geralmente não é gratuito. Por enquanto, está.</h1>
+    <p>Pra gente liberar seu acesso, responda rapidinho <strong id="qtd-perguntas">4 perguntas</strong> abaixo. Leva menos de 1 minuto.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label">Pergunta 1 de 4</div>
+  </div>
+
+  <!-- [ PLACEHOLDER: estas 4 perguntas são de exemplo. Assim que você me passar as perguntas reais, eu troco o texto e as opções de cada uma. ] -->
+
+  <div class="step active" data-step="1">
+    <h2>Qual é a sua situação hoje?</h2>
+    <div class="opcoes">
+      <button class="opcao" type="button">Sou recém-formada, ainda não tenho consultório</button>
+      <button class="opcao" type="button">Já atendo, mas quero crescer</button>
+      <button class="opcao" type="button">Estou migrando de carreira pra nutrição clínica</button>
+    </div>
+  </div>
+
+  <div class="step" data-step="2">
+    <h2>Como você atende hoje?</h2>
+    <div class="opcoes">
+      <button class="opcao" type="button">Consultório físico alugado</button>
+      <button class="opcao" type="button">Atendimento online</button>
+      <button class="opcao" type="button">Ainda não comecei a atender</button>
+    </div>
+  </div>
+
+  <div class="step" data-step="3">
+    <h2>Qual seu maior desafio hoje pra ter mais pacientes?</h2>
+    <div class="opcoes">
+      <button class="opcao" type="button">Dependo de indicação</button>
+      <button class="opcao" type="button">Posto no Instagram e não vira consulta</button>
+      <button class="opcao" type="button">Não sei precificar meus planos</button>
+    </div>
+  </div>
+
+  <div class="step" data-step="4">
+    <h2>Qual seu faturamento hoje com consultório?</h2>
+    <div class="opcoes">
+      <button class="opcao" type="button">Até R$3.000/mês</button>
+      <button class="opcao" type="button">Entre R$3.000 e R$8.000/mês</button>
+      <button class="opcao" type="button">Acima de R$8.000/mês</button>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <button class="voltar" id="btn-voltar" disabled>← Voltar</button>
+    <button class="avancar" id="btn-avancar" disabled>Avançar</button>
+  </div>
+</div>
+
+
+
+
+</div>
+
+<div id="resultado-page">
+
+
+<div class="res-wrap">
+  <span class="badge-topo">RESULTADO</span>
+
+  <div class="video-frame">
+    <!-- [ PLACEHOLDER: troque o src abaixo pelo vídeo real, formato vertical 9:16 estilo reels ] -->
+    <video poster="" controls playsinline>
+      <source src="" type="video/mp4">
+    </video>
+    <div class="play-icon">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <div class="video-overlay-top">
+      <span class="selo">QUALIFICADA ✓</span>
+      <p>Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
+    </div>
+  </div>
+  <p class="placeholder-flag">[ vídeo placeholder: suba o arquivo real em formato reels (9:16) e cole o link no atributo src do vídeo ]</p>
+
+  <div class="aviso-bonus">
+    <div class="icone">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <p><strong>Bônus exclusivo liberado:</strong>Além do livro online, receba uma aula exclusiva sobre "Como atrair seguidores qualificados com estratégias de tráfego pago" liberada junto na descrição do grupo.</p>
+  </div>
+
+  <a href="https://chat.whatsapp.com/BTEUk6qy1Nu4P6zzo3K5yn" class="btn-whatsapp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.55-13.58ZM12.05 18.4h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 1 1 5.6 3.09Zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.35-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.34h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.6s.7 1.86.8 2c.1.13 1.38 2.11 3.36 2.96.47.2.83.32 1.12.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.86.11-.94-.04-.09-.18-.14-.38-.24Z"/></svg>
+    Quero entrar no grupo e receber o material
+  </a>
+  <p class="instrucao">O link do livro online e da aula bônus está fixado na descrição do grupo.</p>
+</div>
+
+
+</div>
+
+<script>
+  function goToQuiz(e){
+    if(e) e.preventDefault();
+    document.getElementById('sales-page').style.display = 'none';
+    document.getElementById('quiz-page').classList.add('active');
+    window.scrollTo(0,0);
+  }
+  function goToResultado(){
+    document.getElementById('quiz-page').classList.remove('active');
+    document.getElementById('resultado-page').classList.add('active');
+    window.scrollTo(0,0);
+  }
+</script>
+
+<script>
+
+  const totalSteps = document.querySelectorAll('.step').length;
+  let current = 1;
+  const respostas = {};
+
+  const progressFill = document.getElementById('progress-fill');
+  const progressLabel = document.getElementById('progress-label');
+  const btnVoltar = document.getElementById('btn-voltar');
+  const btnAvancar = document.getElementById('btn-avancar');
+  document.getElementById('qtd-perguntas').textContent = totalSteps + ' perguntas';
+
+  function renderStep(){
+    document.querySelectorAll('.step').forEach(s => {
+      s.classList.toggle('active', Number(s.dataset.step) === current);
+    });
+    progressFill.style.width = ((current - 1) / totalSteps * 100) + '%';
+    progressLabel.textContent = 'Pergunta ' + current + ' de ' + totalSteps;
+    btnVoltar.disabled = current === 1;
+    btnAvancar.textContent = current === totalSteps ? 'Liberar meu material' : 'Avançar';
+    btnAvancar.disabled = !respostas[current];
+  }
+
+  document.querySelectorAll('.step').forEach(step => {
+    step.querySelectorAll('.opcao').forEach(opcao => {
+      opcao.addEventListener('click', () => {
+        step.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
+        opcao.classList.add('selecionada');
+        respostas[step.dataset.step] = opcao.textContent;
+        btnAvancar.disabled = false;
+      });
+    });
+  });
+
+  btnVoltar.addEventListener('click', () => {
+    if(current > 1){ current--; renderStep(); }
+  });
+
+  btnAvancar.addEventListener('click', () => {
+    if(current < totalSteps){
+      current++;
+      renderStep();
+    } else {
+      progressFill.style.width = '100%';
+      goToResultado();
+    }
+  });
+
+  renderStep();
+
+</script>
 </body>
 </html>
