@@ -467,11 +467,11 @@
     position:absolute;top:0;left:0;width:100%;height:100%;border:0;
   }
   .video-overlay-top{
-    position:absolute;top:0;left:0;right:0;
-    padding:22px 18px;
-    background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%);
+    background:var(--sage-deep);
+    border-radius:12px;
+    padding:20px 18px;
     text-align:left;
-    pointer-events:none;
+    margin-bottom:16px;
   }
   .video-overlay-top .selo{
     display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
@@ -480,7 +480,6 @@
   }
   .video-overlay-top p{
     color:#fff;font-family:var(--serif);font-size:19px;line-height:1.3;margin:0;
-    text-shadow:0 2px 8px rgba(0,0,0,.35);
   }
   .video-overlay-top p strong{color:var(--gold-soft);}
   /* ---------- BANNER AULA BÔNUS ---------- */
@@ -946,12 +945,13 @@
 <div class="res-wrap">
   <span class="badge-topo">RESULTADO</span>
 
+  <div class="video-overlay-top">
+    <span class="selo">QUALIFICADA ✓</span>
+    <p>Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
+  </div>
+
   <div class="video-frame">
     <iframe src="https://www.youtube.com/embed/5Poijo4eMGI" title="Vídeo de qualificação" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <div class="video-overlay-top">
-      <span class="selo">QUALIFICADA ✓</span>
-      <p>Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
-    </div>
   </div>
 
   <div class="aviso-bonus">
