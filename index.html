@@ -281,9 +281,7 @@
   .autor-box{display:flex;gap:32px;align-items:center;}
   .autor-foto{
     flex-shrink:0;width:130px;height:130px;border-radius:50%;
-    background:linear-gradient(145deg,var(--sage) 0%, var(--sage-deep) 100%);
-    color:var(--paper);font-family:var(--serif);font-size:36px;font-weight:600;
-    display:flex;align-items:center;justify-content:center;
+    object-fit:cover;
     box-shadow:0 10px 24px rgba(30,42,34,0.18);
   }
   .autor-texto p{color:#000;}
@@ -708,7 +706,7 @@
 <section class="block">
   <div class="wrap-wide">
     <div class="autor-box">
-      <div class="autor-foto">MH</div>
+      <img class="autor-foto" src="https://raw.githubusercontent.com/marcoshenriquemhbc/ebook-nutri-captacao-pacientes/refs/heads/main/WhatsApp%20Image%202026-07-04%20at%206.52.54%20PM.jpeg" alt="Marcos Henrique">
       <div class="autor-texto">
         <p class="eyebrow">QUEM ESCREVEU ESSE MÉTODO</p>
         <h2 style="margin:8px 0 14px;">Marcos Henrique</h2>
@@ -716,7 +714,6 @@
         <p style="margin-bottom:0;">Esse livro online nasce da mesma lógica que ele aplica com seus clientes: separar o que trava a atração, a estrutura do Instagram, do que trava a venda, o modelo de consulta avulsa, e resolver as duas coisas juntas.</p>
       </div>
     </div>
-    <p class="placeholder-flag">[ troque o círculo "MH" por uma foto real sua, formato quadrado/redondo ]</p>
   </div>
 </section>
 
