@@ -20,6 +20,7 @@
     --gold-soft:#D9C39B;
     --hair:#D8D2C2;
     --red:#A5473A;
+    --whatsapp:#25D366;
     --serif: 'Lora', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
@@ -883,8 +884,7 @@
 <div class="quiz-card">
   <div class="intro" id="intro-block">
     <span class="badge">MATERIAL PREMIUM LIBERADO POR TEMPO LIMITADO</span>
-    <h1>Esse material geralmente não é gratuito. Por enquanto, está.</h1>
-    <p>Pra gente liberar seu acesso, responda rapidinho <strong id="qtd-perguntas">4 perguntas</strong> abaixo. Leva menos de 1 minuto.</p>
+    <p><strong>Pra gente liberar seu acesso, responda rapidinho <span id="qtd-perguntas">4 perguntas</span> abaixo. 60 segundos.</strong></p>
   </div>
 
   <div class="progress-wrap">
@@ -906,7 +906,7 @@
   <div class="step" data-step="2">
     <h2>Como você atende hoje?</h2>
     <div class="opcoes">
-      <button class="opcao" type="button">Consultório físico alugado</button>
+      <button class="opcao" type="button">Consultório físico</button>
       <button class="opcao" type="button">Atendimento online</button>
       <button class="opcao" type="button">Ainda não comecei a atender</button>
     </div>
@@ -918,12 +918,16 @@
       <button class="opcao" type="button">Dependo de indicação</button>
       <button class="opcao" type="button">Posto no Instagram e não vira consulta</button>
       <button class="opcao" type="button">Não sei precificar meus planos</button>
+      <button class="opcao" type="button">Não sei conduzir a conversa no direct até o fechamento</button>
+      <button class="opcao" type="button">Tenho vergonha de parecer que estou vendendo</button>
     </div>
   </div>
 
   <div class="step" data-step="4">
     <h2>Qual seu faturamento hoje com consultório?</h2>
     <div class="opcoes">
+      <button class="opcao" type="button">Até R$2.000/mês</button>
+      <button class="opcao" type="button">De R$2.000 a R$3.000/mês</button>
       <button class="opcao" type="button">Até R$3.000/mês</button>
       <button class="opcao" type="button">Entre R$3.000 e R$8.000/mês</button>
       <button class="opcao" type="button">Acima de R$8.000/mês</button>
@@ -932,7 +936,6 @@
 
   <div class="nav-row">
     <button class="voltar" id="btn-voltar" disabled>← Voltar</button>
-    <button class="avancar" id="btn-avancar" disabled>Avançar</button>
   </div>
 </div>
 
@@ -1004,7 +1007,6 @@
   const progressFill = document.getElementById('progress-fill');
   const progressLabel = document.getElementById('progress-label');
   const btnVoltar = document.getElementById('btn-voltar');
-  const btnAvancar = document.getElementById('btn-avancar');
   document.getElementById('qtd-perguntas').textContent = totalSteps + ' perguntas';
 
   function renderStep(){
@@ -1014,8 +1016,6 @@
     progressFill.style.width = ((current - 1) / totalSteps * 100) + '%';
     progressLabel.textContent = 'Pergunta ' + current + ' de ' + totalSteps;
     btnVoltar.disabled = current === 1;
-    btnAvancar.textContent = current === totalSteps ? 'Liberar meu material' : 'Avançar';
-    btnAvancar.disabled = !respostas[current];
   }
 
   document.querySelectorAll('.step').forEach(step => {
@@ -1024,23 +1024,22 @@
         step.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
         opcao.classList.add('selecionada');
         respostas[step.dataset.step] = opcao.textContent;
-        btnAvancar.disabled = false;
+
+        setTimeout(() => {
+          if(current < totalSteps){
+            current++;
+            renderStep();
+          } else {
+            progressFill.style.width = '100%';
+            goToResultado();
+          }
+        }, 300);
       });
     });
   });
 
   btnVoltar.addEventListener('click', () => {
     if(current > 1){ current--; renderStep(); }
-  });
-
-  btnAvancar.addEventListener('click', () => {
-    if(current < totalSteps){
-      current++;
-      renderStep();
-    } else {
-      progressFill.style.width = '100%';
-      goToResultado();
-    }
   });
 
   renderStep();
