@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram pra Nutricionista - Atraia e Fidelize Pacientes Todo Mês</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F3EC;
+    --paper-2:#EFEAE0;
+    --ink:#1E2A22;
+    --ink-soft:#3A4A3F;
+    --sage:#5F7C63;
+    --sage-deep:#3D5340;
+    --gold:#B08D53;
+    --gold-soft:#D9C39B;
+    --hair:#D8D2C2;
+    --red:#A5473A;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:#000;
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+  .wrap-wide{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  h1,h2,h3{font-family:var(--serif);margin:0;}
+  h1{color:var(--ink);}
+  h2,h3{color:#000;}
+  .eyebrow{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:600;
+    color:var(--sage-deep);
+    letter-spacing:.02em;
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:6px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(180deg,var(--paper-2) 0%, var(--paper) 70%);
+    padding:64px 0 48px;
+    border-bottom:1px solid var(--hair);
+  }
+  .hero h1{
+    font-size:40px;
+    line-height:1.15;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
+  }
+  .hero .sub{
+    font-size:19px;
+    color:#000;
+    max-width:56ch;
+    margin-bottom:14px;
+  }
+  .hero .reforco{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:20px;
+    color:#000;
+    margin-bottom:32px;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--sage-deep);
+    color:var(--paper);
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:17px;
+    padding:16px 30px;
+    border-radius:6px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .btn:hover{background:var(--ink);}
+  .btn-block{display:block;width:100%;text-align:center;}
+  .btn-gold{background:var(--gold);color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-soft);}
+
+  .hero-cover{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+  }
+  .cover-mock{
+    width:230px;
+    aspect-ratio:3/4;
+    background:linear-gradient(145deg,var(--sage) 0%, var(--sage-deep) 100%);
+    border-radius:4px;
+    box-shadow:14px 18px 0 rgba(30,42,34,0.08), 0 24px 40px rgba(30,42,34,0.18);
+    transform:rotate(-4deg);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:22px 18px;
+    color:var(--paper);
+  }
+  .cover-mock .spine{
+    position:absolute;left:0;top:0;bottom:0;width:10px;
+    background:var(--gold);border-radius:4px 0 0 4px;
+  }
+  .cover-mock .cover-eyebrow{
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-soft);font-family:var(--sans);font-weight:600;
+  }
+  .cover-mock .cover-title{
+    font-family:var(--serif);font-size:22px;line-height:1.15;font-weight:600;
+  }
+  .cover-mock .cover-note{
+    font-family:var(--sans);font-size:10px;opacity:.7;
+  }
+  .placeholder-flag{
+    text-align:center;font-family:var(--sans);font-size:12px;color:#000;
+    margin-top:12px;
+  }
+
+  /* ---------- METRICS ---------- */
+  .metrics{
+    display:flex;gap:14px;margin-top:48px;
+  }
+  .metrics .card{
+    flex:1;
+    text-align:center;
+    padding:26px 14px;
+    background:#fff;
+    border:1px solid var(--hair);
+    border-radius:10px;
+    box-shadow:0 6px 16px rgba(30,42,34,0.05);
+  }
+  .metrics .icon{
+    width:44px;height:44px;margin:0 auto 12px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--sage-deep);border-radius:50%;
+    color:var(--gold-soft);
+  }
+  .metrics .num{font-family:var(--serif);font-size:24px;color:#000;margin-bottom:4px;}
+  .metrics .riscado{font-size:13px;color:#000;text-decoration:line-through;margin-bottom:2px;}
+  .metrics .lab{font-size:12.5px;color:#000;line-height:1.4;}
+
+  /* ---------- GENERIC SECTION ---------- */
+  section.block{padding:64px 0;border-bottom:1px solid var(--hair);}
+  section.block.tint{background:var(--paper-2);}
+  .block h2{font-size:29px;line-height:1.25;font-weight:600;margin-bottom:22px;max-width:26ch;}
+  .block p{margin:0 0 16px;color:#000;}
+  .lead{font-size:19px;color:#000;}
+
+  /* ---------- PARA QUEM ---------- */
+  .quem-list{list-style:none;margin:0;padding:0;}
+  .quem-list li{
+    display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--hair);
+    font-size:16px;color:#000;
+  }
+  .quem-list li:last-child{border-bottom:none;}
+  .quem-list .mark{color:#000;font-family:var(--serif);font-size:18px;flex-shrink:0;}
+
+  .quem-section{
+    background:var(--sage-deep);
+    border-bottom:none;
+  }
+  .quem-section h2{color:var(--paper);}
+  .quem-section .quem-list li{
+    color:var(--paper);
+    border-bottom:1px solid rgba(255,255,255,.15);
+  }
+  .quem-section .quem-list .mark{color:var(--gold-soft);}
+  .quem-section p{color:var(--paper);}
+  .quem-section .beneficio{border-bottom:1px solid rgba(255,255,255,.15);}
+  .quem-section .beneficio .titulo{color:var(--gold-soft);}
+  .quem-section .texto-dourado{color:var(--gold-soft);}
+
+  /* ---------- CHECK BULLETS ---------- */
+  ul.check{list-style:none;margin:0;padding:0;}
+  ul.check li{
+    position:relative;padding:11px 0 11px 30px;border-bottom:1px solid var(--hair);
+    color:#000;
+  }
+  ul.check li:last-child{border-bottom:none;}
+  ul.check li:before{
+    content:"";position:absolute;left:0;top:15px;width:14px;height:14px;
+    border:2px solid var(--sage-deep);border-radius:50%;
+  }
+  ul.check li:after{
+    content:"";position:absolute;left:4.5px;top:18.5px;width:5px;height:8px;
+    border-right:2px solid var(--sage-deep);border-bottom:2px solid var(--sage-deep);
+    transform:rotate(45deg);
+  }
+
+  /* ---------- BENEFÍCIOS CARDS ---------- */
+  .beneficios{display:flex;flex-direction:column;gap:0;}
+  .beneficio{
+    padding:22px 0;border-bottom:1px solid var(--hair);
+  }
+  .beneficio:last-child{border-bottom:none;}
+  .beneficio .titulo{
+    font-family:var(--serif);font-size:19px;color:#000;margin-bottom:6px;
+  }
+  .beneficio p{margin:0;}
+
+  /* ---------- OBJEÇÕES ---------- */
+  .objecao{padding:20px 0;border-bottom:1px solid var(--hair);}
+  .objecao:last-child{border-bottom:none;}
+  .objecao .pergunta{
+    display:inline-block;
+    font-family:var(--serif);font-style:italic;font-size:18px;color:#000;
+    background:var(--gold-soft);border:1px solid var(--gold);
+    padding:8px 18px;border-radius:20px;margin-bottom:10px;
+  }
+
+  /* ---------- COMPARATIVO ---------- */
+  .compare{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border:1px solid var(--hair);border-radius:8px;overflow:hidden;
+  }
+  .compare .col{padding:26px 22px;}
+  .compare .col.bad{background:var(--paper);}
+  .compare .col.good{background:var(--sage-deep);color:var(--paper);}
+  .compare h3{font-size:16px;font-family:var(--sans);font-weight:700;margin-bottom:14px;}
+  .compare .col.bad h3{color:var(--red);}
+  .compare .col.good h3{color:var(--gold-soft);}
+  .compare ul{list-style:none;margin:0;padding:0;}
+  .compare li{padding:9px 0;font-size:14.5px;border-bottom:1px solid rgba(0,0,0,.06);}
+  .compare .col.good li{border-bottom:1px solid rgba(255,255,255,.12);}
+  @media(max-width:640px){.compare{grid-template-columns:1fr;}}
+
+  /* ---------- OFERTA ---------- */
+  .oferta-box{
+    background:var(--ink);color:var(--paper);border-radius:12px;
+    padding:42px 32px;text-align:center;
+  }
+  .oferta-box .valor-riscado{
+    font-size:16px;color:#9aa79c;text-decoration:line-through;
+  }
+  .oferta-box .valor-final{
+    font-family:var(--serif);font-size:52px;color:var(--gold-soft);margin:10px 0 4px;
+  }
+  .oferta-box .valor-legenda{font-size:14px;color:#c9d0c9;margin-bottom:26px;}
+  .oferta-box .btn{width:100%;max-width:380px;}
+  .oferta-box .seguro{font-size:12px;color:#9aa79c;margin-top:14px;}
+
+  .recebe-list{list-style:none;margin:0;padding:0;}
+  .recebe-list li{
+    display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);
+    font-size:15px;text-align:left;
+  }
+  .recebe-list li:last-child{border-bottom:none;}
+
+  /* ---------- FAQ ---------- */
+  details{border-bottom:1px solid var(--hair);padding:16px 0;}
+  details summary{
+    font-family:var(--serif);font-size:18px;font-weight:700;cursor:pointer;color:#000;
+    list-style:none;position:relative;padding-right:24px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary:after{
+    content:"+";position:absolute;right:0;top:-2px;font-size:22px;color:var(--sage-deep);
+  }
+  details[open] summary:after{content:"–";}
+  details p{margin-top:12px;color:#000;}
+
+  /* ---------- FOOTER / CTA FINAL ---------- */
+  .fechamento{
+    background:var(--sage-deep);color:var(--paper);padding:72px 0;text-align:center;
+  }
+  .fechamento h2{color:var(--paper);font-size:30px;line-height:1.35;max-width:26ch;margin:0 auto 26px;}
+  .fechamento p{color:#d9e2d9;max-width:52ch;margin:0 auto 16px;line-height:1.6;}
+  .fechamento p:last-of-type{margin-bottom:32px;}
+  .fechamento .btn{background:var(--ink);}
+  .fechamento .btn:hover{background:#0f1712;}
+
+  footer{padding:32px 0;text-align:center;font-size:12px;color:#000;}
+
+  .garantia-selo{
+    width:56px;height:56px;margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--paper-2);border:1px solid var(--gold);border-radius:50%;
+    font-size:26px;
+  }
+
+  .autor-box{display:flex;gap:32px;align-items:center;}
+  .autor-foto{
+    flex-shrink:0;width:130px;height:130px;border-radius:50%;
+    background:linear-gradient(145deg,var(--sage) 0%, var(--sage-deep) 100%);
+    color:var(--paper);font-family:var(--serif);font-size:36px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(30,42,34,0.18);
+  }
+  .autor-texto p{color:#000;}
+  @media(max-width:640px){
+    .autor-box{flex-direction:column;text-align:center;gap:18px;}
+  }
+
+  /* ---------- O QUE VOCÊ RECEBE ---------- */
+  .recebe-section{background:var(--ink);border-bottom:none;}
+  .recebe-section h2{color:var(--paper);}
+  .destaque-dourado{color:var(--gold-soft);}
+  .recebe-bar{width:64px;height:3px;background:var(--gold);margin:16px auto 40px;border-radius:2px;}
+  .recebe-card{
+    background:#26332B;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    padding:36px;
+    display:flex;
+    align-items:center;
+    gap:40px;
+  }
+  .recebe-texto{flex:1;}
+  .recebe-texto h3{color:var(--paper);font-size:20px;margin-bottom:18px;}
+  .check-recebe{list-style:none;margin:0;padding:0;}
+  .check-recebe li{
+    color:#d9ded9;font-size:15px;padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .check-recebe li:last-child{border-bottom:none;}
+  .recebe-imagem{flex-shrink:0;display:flex;justify-content:center;}
+  .recebe-section .placeholder-flag{color:#9aa79c;}
+
+  /* ---------- DEPOIMENTOS ---------- */
+  .depoimentos-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  .depoimento-card{
+    background:#fff;border:1px solid var(--hair);border-radius:12px;
+    padding:28px 26px;box-shadow:0 6px 16px rgba(30,42,34,0.05);
+  }
+  .depoimento-estrelas{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:14px;}
+  .depoimento-texto{
+    font-family:var(--serif);font-style:italic;font-size:16.5px;color:#000;
+    line-height:1.55;margin:0 0 22px;
+  }
+  .depoimento-autor{display:flex;align-items:center;gap:12px;}
+  .depoimento-avatar{
+    flex-shrink:0;width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(145deg,var(--sage) 0%, var(--sage-deep) 100%);
+    color:var(--paper);font-family:var(--serif);font-size:15px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .depoimento-nome{font-weight:600;font-size:14.5px;color:#000;}
+  .depoimento-cargo{font-size:13px;color:#000;}
+  @media(max-width:640px){
+    .depoimentos-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:700px){
+    .recebe-card{flex-direction:column;padding:26px 20px;}
+    .recebe-imagem{order:-1;}
+  }
+
+  .bonus-row{
+    display:flex;align-items:center;gap:22px;margin-top:28px;
+  }
+  .bonus-card{
+    flex:1;background:#26332B;border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;padding:28px 26px;
+  }
+  .bonus-card h3{color:var(--paper);font-size:18px;line-height:1.4;margin-bottom:18px;font-weight:600;}
+  .bonus-plus{
+    flex-shrink:0;color:var(--gold);font-size:28px;font-weight:700;
+  }
+  @media(max-width:700px){
+    .bonus-row{flex-direction:column;}
+    .bonus-plus{transform:rotate(90deg);margin:4px 0;}
+  }
+
+  @media(max-width:640px){
+    body{font-size:16px;}
+    .wrap,.wrap-wide{padding:0 18px;}
+    .hero{padding:44px 0 36px;}
+    .hero h1{font-size:28px;}
+    .hero .sub{font-size:17px;}
+    .hero .reforco{font-size:18px;}
+    section.block{padding:44px 0;}
+    .block h2{font-size:22px;}
+    .metrics{flex-wrap:wrap;gap:10px;}
+    .metrics .card{padding:18px 10px;flex:1 1 30%;}
+    .metrics .num{font-size:17px;}
+    .metrics .lab{font-size:11px;}
+    .cover-mock{width:190px;}
+    .btn{width:100%;text-align:center;padding:15px 20px;font-size:16px;}
+    .oferta-box{padding:32px 20px;}
+    .oferta-box .valor-final{font-size:40px;}
+    .compare .col{padding:22px 18px;}
+    .fechamento{padding:52px 0;}
+    .fechamento h2{font-size:24px;}
+    details summary{font-size:16.5px;}
+  }
+  @media(max-width:380px){
+    .hero h1{font-size:24px;}
+    .metrics .card{flex:1 1 100%;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">PARA NUTRICIONISTAS QUE ESTÃO CANSADAS DE DEPENDER DE INDICAÇÃO</p>
+    <h1>Como atrair e fidelizar pacientes todo mês pelo Instagram e virar a nutri de referência da sua cidade sem precisar atender todos os dias</h1>
+    <p class="sub">Esse é o método mais eficaz que transforma desconhecido em paciente de acompanhamento que te paga todo mês, e ainda sem precisar recomeçar a agenda do zero toda semana.</p>
+    <p class="reforco">Você não precisa apenas de mais seguidores, você precisa de pacientes qualificados com previsibilidade.</p>
+    <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+
+    <div class="hero-cover">
+      <div class="cover-mock">
+        <div class="spine"></div>
+        <span class="cover-eyebrow">MÉTODO</span>
+        <span class="cover-title">Instagram pra Nutricionista</span>
+        <span class="cover-note">atraia e fidelize pacientes todo mês</span>
+      </div>
+    </div>
+    <p class="placeholder-flag">[ troque este mockup pela capa 3D real assim que gerar no ChatGPT ]</p>
+  </div>
+
+  <div class="metrics wrap">
+    <div class="card">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41 12 22 2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/>
+          <circle cx="7" cy="7" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="riscado">de R$67,00</div>
+      <div class="num">por R$14,90</div>
+      <div class="lab">acesso ao método completo</div>
+    </div>
+    <div class="card">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 4c-2-1-5-1-8 0v14c3-1 6-1 8 0 2-1 5-1 8 0V4c-3-1-6-1-8 0Z"/>
+          <path d="M12 4v14"/>
+        </svg>
+      </div>
+      <div class="num">PDF</div>
+      <div class="lab">Mais que um livro online, um framework para ter alta conversão no Instagram.</div>
+    </div>
+    <div class="card">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+          <path d="m3 13 9 5 9-5"/>
+        </svg>
+      </div>
+      <div class="num" style="font-size:19px;">3 partes fundamentais</div>
+      <div class="lab" style="font-size:10px;">Atração, conversão e fidelização de pacientes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<!-- Nota pro Marcos: depoimentos fictícios de exemplo, só pra visualizar o layout. Troque nome, contexto e texto pelos depoimentos reais antes de publicar. -->
+<section class="block">
+  <div class="wrap-wide">
+    <h2 style="text-align:center;max-width:none;margin:0 auto 34px;">O que dizem as nutricionistas que já aplicaram</h2>
+    <div class="depoimentos-grid">
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <p class="depoimento-texto">"Depoimento fictício de exemplo. Aqui entra a fala real da cliente sobre o resultado que ela teve depois de aplicar o método, no tom de voz dela mesma."</p>
+        <div class="depoimento-autor">
+          <div class="depoimento-avatar">NC</div>
+          <div>
+            <div class="depoimento-nome">Nome da Cliente</div>
+            <div class="depoimento-cargo">Nutricionista, cidade</div>
+          </div>
+        </div>
+      </div>
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <p class="depoimento-texto">"Segundo depoimento fictício de exemplo. Aqui entra a fala real da segunda cliente, de preferência destacando um resultado ou objeção diferente do primeiro depoimento."</p>
+        <div class="depoimento-autor">
+          <div class="depoimento-avatar">NC</div>
+          <div>
+            <div class="depoimento-nome">Nome da Cliente</div>
+            <div class="depoimento-cargo">Nutricionista, cidade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="placeholder-flag">[ depoimentos fictícios, só de exemplo pro layout. Me manda o texto real que eu troco. ]</p>
+  </div>
+</section>
+
+<!-- ================= PARA QUEM ================= -->
+<section class="block quem-section">
+  <div class="wrap">
+    <h2>Para quem é este método</h2>
+    <ul class="quem-list">
+      <li><span class="mark">-</span> Nutricionistas recém-formadas que sabem atender bem, mas não sabem como atrair os melhores perfis de pacientes particulares.</li>
+      <li><span class="mark">-</span> Quem já atende, mas ainda depende de indicação pra fechar a agenda e ou aumentar o faturamento.</li>
+      <li><span class="mark">-</span> Quem posta no Instagram "sem estratégia" e não vê isso virar consulta e nem em fechamentos de programas de acompanhamento.</li>
+      <li><span class="mark">-</span> Quem vende consulta avulsa e sente que recomeça o mês do zero toda vez.</li>
+      <li><span class="mark">-</span> Nutricionistas travadas nos 3K (ou mais) por mês. Se você está com faturamento travado, esse método vai te ajudar.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= O QUE VOCÊ RECEBE ================= -->
+<section class="block recebe-section">
+  <div class="wrap-wide">
+    <h2 style="text-align:center;max-width:none;">O que você <span class="destaque-dourado">recebe</span>:</h2>
+    <div class="recebe-bar"></div>
+
+    <div class="recebe-card">
+      <div class="recebe-texto">
+        <h3>Livro Online Instagram pra Nutricionista</h3>
+        <ul class="check-recebe">
+          <li>✓ O passo a passo completo pra estruturar seu Instagram como porta de entrada de paciente.</li>
+          <li>✓ O roteiro de condução de direct até o fechamento do plano de acompanhamento.</li>
+          <li>✓ Como migrar de consulta avulsa pra plano recorrente sem perder paciente atual.</li>
+          <li>✓ Acesso imediato em PDF, direto no seu e-mail após a compra.</li>
+        </ul>
+      </div>
+      <div class="recebe-imagem">
+        <div class="cover-mock" style="width:190px;">
+          <div class="spine"></div>
+          <span class="cover-eyebrow">MÉTODO</span>
+          <span class="cover-title">Instagram pra Nutricionista</span>
+          <span class="cover-note">atraia e fidelize pacientes todo mês</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="placeholder-flag">[ este é o card principal ]</p>
+
+    <div class="bonus-row">
+      <div class="bonus-card">
+        <h3>BÔNUS: Curso Online<br>"Nome do Curso Bônus 1"<br>(Acesso Vitalício)</h3>
+        <ul class="check-recebe">
+          <li>✓ [ placeholder: primeiro tópico do curso bônus 1 ]</li>
+          <li>✓ [ placeholder: segundo tópico do curso bônus 1 ]</li>
+          <li>✓ [ placeholder: terceiro tópico do curso bônus 1 ]</li>
+          <li>✓ [ placeholder: quarto tópico do curso bônus 1 ]</li>
+        </ul>
+      </div>
+      <div class="bonus-plus">+</div>
+      <div class="bonus-card">
+        <h3>BÔNUS: Curso Online<br>"Nome do Curso Bônus 2"<br>(Acesso por 90 dias)</h3>
+        <ul class="check-recebe">
+          <li>✓ [ placeholder: primeiro tópico do curso bônus 2 ]</li>
+          <li>✓ [ placeholder: segundo tópico do curso bônus 2 ]</li>
+          <li>✓ [ placeholder: terceiro tópico do curso bônus 2 ]</li>
+          <li>✓ [ placeholder: quarto tópico do curso bônus 2 ]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método + os bônus agora</a>
+    </div>
+
+    <p class="placeholder-flag">[ os dois cards de bônus acima e os tópicos de cada um são placeholder. Me manda o nome dos cursos e os tópicos reais que eu troco. ]</p>
+  </div>
+</section>
+
+<!-- ================= PROBLEMA / AGITAÇÃO ================= -->
+<section class="block tint">
+  <div class="wrap">
+    <h2>Você fez uma boa consulta essa semana. E mesmo assim, a agenda da semana que vem continua vazia.</h2>
+    <p class="lead">Você sabe montar um plano alimentar bom. Sabe conduzir uma anamnese, ajustar a conduta, acompanhar exame.</p>
+    <p class="lead">Isso nunca foi o problema.</p>
+    <p>O problema é que você termina a consulta, manda a paciente embora satisfeita, e não tem a menor ideia de quando vai atender a próxima.</p>
+    <p>Você posta no Instagram, às vezes todo dia, e o retorno não passa de algumas curtidas de gente que já é sua conhecida.</p>
+    <p>Você espera que a paciente de hoje indique uma amiga, mas isso, quando acontece, enche a agenda devagar demais pra pagar o aluguel da sala no fim do mês.</p>
+    <p>Cada mês vira um recomeço do zero.</p>
+    <p>Você não sabe se vai fechar quatro consultas ou catorze.</p>
+    <p>E enquanto isso, você trabalha mais do que devia, tentando compensar a falta de previsibilidade com mais horas de consultório, mais post de madrugada, mais tempo tentando adivinhar o que fazer diferente.</p>
+    <p>O pior não é a falta de dinheiro.</p>
+    <p>É a sensação de que você fez cinco anos de faculdade pra ficar contando curtida de post, em vez de fazer o que sabe fazer bem: cuidar de gente.</p>
+  </div>
+</section>
+
+<!-- ================= QUEBRA DE CRENÇA ================= -->
+<section class="block quem-section">
+  <div class="wrap">
+    <h2>Você não tem um problema de Instagram. Tem um problema de modelo de venda.</h2>
+    <p>Existe uma crença que quase toda nutricionista recém-formada carrega sem perceber: que se ela for uma boa profissional, a indicação vai vir sozinha.</p>
+    <p>Que postar mais, com mais frequência, é a resposta pra agenda vazia.</p>
+    <p>Não é.</p>
+    <p>Postar mais sem mudar o que você vende é só trabalhar mais pelo mesmo resultado.</p>
+    <p>A raiz do problema está em outro lugar: você está vendendo consulta avulsa.</p>
+    <p>E consulta avulsa, por mais bem feita que seja, tem um problema estrutural: a paciente resolve a dúvida daquele momento, vai embora, e não existe motivo nenhum pra ela voltar num prazo definido.</p>
+    <p>Ela pode voltar em um mês, em seis, ou nunca mais. Você fica na mão dela.</p>
+    <p>Quando você vende plano de acompanhamento em vez de consulta isolada, muda a lógica inteira.</p>
+    <p>A paciente não está comprando uma consulta, está comprando um período de suporte, com prazo e valor definidos desde o início.</p>
+    <p>Isso muda a forma como ela enxerga o preço, e muda completamente a sua previsibilidade de faturamento.</p>
+    <p>E o Instagram, nesse modelo, deixa de ser vitrine de conteúdo educativo pra virar o que ele deveria ser desde o início: a porta de entrada pra esse plano.</p>
+  </div>
+</section>
+
+<!-- ================= MECANISMO ================= -->
+<section class="block tint">
+  <div class="wrap">
+    <h2>O que está acontecendo de verdade quando seu Instagram não vira consulta</h2>
+    <p>Tem duas coisas travando você ao mesmo tempo, e quase ninguém separa as duas.</p>
+    <p>A primeira é o Instagram.</p>
+    <p>Não é falta de conteúdo bom, é falta de estrutura. Bio sem direcionamento claro pra agendamento, destaques que não mostram quem você é nem como funciona seu atendimento, feed que parece o de qualquer outra nutricionista postando dica genérica.</p>
+    <p>Isso não atrai quem já está pronto pra marcar consulta, atrai só curtida de quem já te segue.</p>
+    <p>A segunda é o que você vende depois que a pessoa chega até você.</p>
+    <p>Se o que você oferece é consulta avulsa, mesmo um Instagram bem feito só vai gerar venda pontual, sem repetição, sem previsibilidade.</p>
+    <p>Você vai continuar recomeçando o mês do zero.</p>
+    <p>O mecanismo é simples de entender e difícil de perceber sozinha: primeiro você estrutura seu Instagram pra atrair quem já tem o perfil de quem fecha plano, não só quem quer dica de graça.</p>
+    <p>Depois você conduz essa pessoa, do direct até o fechamento, oferecendo acompanhamento por tempo determinado em vez de consulta isolada.</p>
+    <p>O resultado é um funil que se repete todo mês, sem depender de indicação, sem precisar de milhares de seguidores, e sem você precisar atender todos os dias da semana pra sustentar o faturamento.</p>
+    <p>Isso é o que separa quem vive esperando o Instagram "engajar" de quem já transformou o perfil numa fonte de agenda cheia.</p>
+  </div>
+</section>
+
+<!-- ================= APRESENTAÇÃO DO PRODUTO ================= -->
+<section class="block">
+  <div class="wrap-wide">
+    <h2 style="text-align:center;max-width:none;margin:0 auto 30px;">O livro online que coloca esse método em prática, do jeito que você consegue aplicar sozinha essa semana</h2>
+    <div class="hero-cover">
+      <div class="cover-mock">
+        <div class="spine"></div>
+        <span class="cover-eyebrow">MÉTODO</span>
+        <span class="cover-title">Instagram pra Nutricionista</span>
+        <span class="cover-note">atraia e fidelize pacientes todo mês</span>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;margin-top:36px;">
+      <p><em>Instagram pra Nutricionista</em> não é um material teórico sobre marketing.</p>
+      <p>É o passo a passo direto pra você sair do "espero que alguém me indique" pro "tenho um funil que traz paciente todo mês".</p>
+      <p>Ele reúne as duas partes do mecanismo numa sequência única: como estruturar seu Instagram pra atrair quem tem perfil de fechar plano, e como conduzir essa pessoa até o fechamento de um plano de acompanhamento, em vez de uma consulta isolada.</p>
+      <p>Você não vai terminar a leitura com mais uma lista de dicas soltas.</p>
+      <p>Vai terminar com um roteiro que dá pra aplicar direto na sua bio, no seu feed e na próxima conversa de direct.</p>
+      <p>Depois de aplicar, você vai conseguir estruturar sua bio e seus destaques com direcionamento claro pra agendamento, planejar conteúdo sem passar horas pensando no que postar, conduzir uma conversa de direct até o fechamento sem parecer forçada, e apresentar um plano de acompanhamento de um jeito que a paciente entenda o valor, em vez de comparar com o preço de uma consulta avulsa.</p>
+      <div style="text-align:center;margin-top:30px;">
+        <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= O QUE VOCÊ VAI DESCOBRIR ================= -->
+<section class="block quem-section">
+  <div class="wrap">
+    <h2>O que muda na prática quando você aplica o método</h2>
+    <div class="beneficios">
+      <div class="beneficio">
+        <div class="titulo">A bio que vira porta de entrada</div>
+        <p>Por que sua bio atual está afastando quem já estava pronto pra marcar consulta, e como reescrever ela pra direcionar pro agendamento, não só apresentar quem você é.</p>
+      </div>
+      <div class="beneficio">
+        <div class="titulo">Conteúdo com propósito, não volume</div>
+        <p>Por que postar todo dia sem essa estrutura só cansa você sem encher a agenda, e o que priorizar em vez disso.</p>
+      </div>
+      <div class="beneficio">
+        <div class="titulo">A conversa que fecha, não afasta</div>
+        <p>Como conduzir quem chama no direct perguntando preço, sem parecer que está empurrando venda.</p>
+      </div>
+      <div class="beneficio">
+        <div class="titulo">De consulta avulsa a plano de acompanhamento</div>
+        <p>Por que vender consulta avulsa mantém você refém da agenda, e como migrar pra plano sem perder paciente que já confia em você.</p>
+      </div>
+      <div class="beneficio">
+        <div class="titulo">Valor percebido, não preço negociado</div>
+        <p>Como apresentar o plano de um jeito que a paciente entenda que está comprando acompanhamento, não uma consulta isolada.</p>
+      </div>
+      <div class="beneficio">
+        <div class="titulo">Menos dias, mais faturamento</div>
+        <p>Como isso te tira da lógica de trabalhar mais pra ganhar mais e te coloca numa agenda que rende mais atendendo os mesmos dias de sempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OBJEÇÕES ================= -->
+<section class="block">
+  <div class="wrap">
+    <h2>Se você está pensando em alguma dessas, leia antes de fechar a página</h2>
+
+    <div class="objecao">
+      <p class="pergunta">"Já tentei curso de marketing antes e não funcionou."</p>
+      <p>A maioria dos cursos de marketing pra empreendedor é genérico. Ensina regra que serve pra qualquer nicho, e você fica sem saber como aplicar isso na rotina específica de consultório. Esse material não é sobre marketing em geral, é sobre a estrutura específica de Instagram mais venda de plano de acompanhamento pra nutricionista.</p>
+    </div>
+    <div class="objecao">
+      <p class="pergunta">"Não tenho tempo pra ficar criando conteúdo toda hora."</p>
+      <p>O método não pede mais tempo de conteúdo, pede outra estrutura pro tempo que você já gasta postando. A diferença não está em postar mais, está em postar com direcionamento.</p>
+    </div>
+    <div class="objecao">
+      <p class="pergunta">"Tenho poucos seguidores, será que funciona pra mim?"</p>
+      <p>O mecanismo não depende de alcance grande. Depende de atrair quem já tem perfil de fechar plano, mesmo que seja um número pequeno de pessoas por semana. Uma paciente fechando plano de acompanhamento vale mais que cem curtidas de quem nunca vai marcar consulta.</p>
+    </div>
+    <div class="objecao">
+      <p class="pergunta">"Tenho vergonha de parecer que estou vendendo o tempo todo."</p>
+      <p>O método não é sobre virar vendedora agressiva. É sobre mostrar o trabalho que você já faz bem, de um jeito que naturalmente leva a pessoa a querer marcar consulta. Vender fica mais fácil quando você para de vender consulta avulsa e passa a oferecer acompanhamento, porque aí a conversa é sobre cuidado contínuo, não sobre empurrar produto.</p>
+    </div>
+    <div style="text-align:center;margin-top:34px;">
+      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARATIVO ================= -->
+<section class="block tint">
+  <div class="wrap">
+    <h2 style="text-align:center;max-width:none;">Nutri que vende consulta avulsa x nutri que vende acompanhamento</h2>
+    <div class="compare" style="margin-top:24px;">
+      <div class="col bad">
+        <h3>SEM O MÉTODO</h3>
+        <ul>
+          <li>Recomeça a agenda do zero todo mês</li>
+          <li>Depende de indicação pra ter paciente novo</li>
+          <li>Posta sem saber se vai virar consulta</li>
+          <li>Cobra por consulta isolada, sem previsibilidade</li>
+          <li>Trabalha mais dias pra tentar compensar</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h3>COM O MÉTODO</h3>
+        <ul>
+          <li>Tem um funil que traz paciente todo mês</li>
+          <li>Instagram estruturado pra atrair quem fecha plano</li>
+          <li>Sabe conduzir o direct até o fechamento</li>
+          <li>Vende acompanhamento com valor percebido</li>
+          <li>Fatura mais atendendo os mesmos dias de sempre</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUTOR ================= -->
+<section class="block">
+  <div class="wrap-wide">
+    <div class="autor-box">
+      <div class="autor-foto">MH</div>
+      <div class="autor-texto">
+        <p class="eyebrow">QUEM ESCREVEU ESSE MÉTODO</p>
+        <h2 style="margin:8px 0 14px;">Marcos Henrique</h2>
+        <p>Marcos Henrique é especialista em marketing digital há mais de 10 anos, com atuação em tráfego pago (Meta Ads e Google Ads), funis de vendas e copywriting. É criador do Sistema POC™ (Posicionamento, Oferta, Campanha), metodologia própria de estruturação de oferta, e atua como consultor independente, tendo nutricionistas como um dos principais nichos com que trabalha.</p>
+        <p style="margin-bottom:0;">Esse livro online nasce da mesma lógica que ele aplica com seus clientes: separar o que trava a atração, a estrutura do Instagram, do que trava a venda, o modelo de consulta avulsa, e resolver as duas coisas juntas.</p>
+      </div>
+    </div>
+    <p class="placeholder-flag">[ troque o círculo "MH" por uma foto real sua, formato quadrado/redondo ]</p>
+  </div>
+</section>
+
+<!-- ================= PROVA / CREDIBILIDADE ================= -->
+<!-- Nota pro Marcos: sem depoimento real ainda (produto em lançamento). Assim que tiver print de resultado real de compradora, troca este bloco por prova social de verdade. -->
+<section class="block quem-section">
+  <div class="wrap">
+    <h2>Por que esse método funciona</h2>
+    <p class="texto-dourado">Esse material nasce da mesma lógica que já vem sendo usada por quem estrutura consultório de forma profissional: separar o atendimento, o que você já sabe fazer bem, do modelo de venda, o que geralmente falta pra maioria das nutricionistas recém-formadas. A virada de consulta avulsa pra plano de acompanhamento não é teoria, é a mudança estrutural que resolve o problema de raiz: previsibilidade de faturamento.</p>
+  </div>
+</section>
+
+<!-- ================= OFERTA ================= -->
+<section class="block tint" id="oferta">
+  <div class="wrap">
+    <h2 style="text-align:center;max-width:none;">Tudo isso por apenas R$14,90</h2>
+    <div class="oferta-box" style="margin-top:24px;">
+      <div class="valor-riscado">de R$67,00</div>
+      <div class="valor-final">R$14,90</div>
+      <div class="valor-legenda">pagamento único, sem mensalidade</div>
+      <ul class="recebe-list">
+        <li>✓ Livro online completo em PDF, com o passo a passo de estruturação do Instagram e o roteiro de condução até o fechamento do plano de acompanhamento</li>
+        <li>✓ Acesso imediato após a confirmação da compra, direto no seu e-mail</li>
+      </ul>
+      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener" style="margin-top:26px;">Quero aplicar esse método na minha agenda</a>
+      <p class="seguro">Pagamento processado com segurança pela Hotmart</p>
+    </div>
+    <p style="text-align:center;margin-top:20px;color:#000;font-size:14px;">
+      Você está levando o método completo por um valor menor do que o de uma única consulta que já foi perdida por falta de agenda cheia.
+    </p>
+  </div>
+</section>
+
+<!-- ================= GARANTIA ================= -->
+<section class="block quem-section">
+  <div class="wrap" style="text-align:center;">
+    <div class="garantia-selo">🛡</div>
+    <h2 style="max-width:none;">Risco zero pra você decidir agora</h2>
+    <p style="max-width:52ch;margin:0 auto;">Esse é um material digital: assim que a compra é confirmada, o PDF completo já está com você. Se por qualquer motivo o método não fizer sentido pra sua realidade, é só pedir o reembolso dentro do prazo de garantia mostrado no checkout, sem burocracia nenhuma, e o livro online continua com você mesmo assim. Não existe motivo real pra adiar essa decisão: o risco de testar é zero.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="block tint">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+
+    <details open>
+      <summary>Funciona mesmo que eu tenha poucos seguidores?</summary>
+      <p>Sim. O método não depende de alcance grande, depende de estruturar o que você já tem pra atrair quem tem perfil de fechar plano de acompanhamento.</p>
+    </details>
+    <details>
+      <summary>Preciso saber editar vídeo ou ter equipamento profissional?</summary>
+      <p>Não. O foco do método está na estrutura (bio, direcionamento, condução de conversa), não em produção audiovisual sofisticada.</p>
+    </details>
+    <details>
+      <summary>Isso serve pra quem já atende, ou só pra quem está começando?</summary>
+      <p>Serve pros dois casos. Se você já atende mas depende de indicação, o método resolve a falta de previsibilidade. Se está começando, evita que você repita o erro de vender só consulta avulsa desde o início.</p>
+    </details>
+    <details>
+      <summary>Em quanto tempo eu consigo aplicar?</summary>
+      <p>O material é direto e objetivo. Dá pra ler e começar a aplicar as primeiras mudanças na mesma semana.</p>
+    </details>
+    <details>
+      <summary>Como eu recebo o material depois de comprar?</summary>
+      <p>Acesso liberado direto no seu e-mail assim que a compra é confirmada.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= FECHAMENTO ================= -->
+<section class="fechamento">
+  <div class="wrap">
+    <h2>Sua agenda não vai encher sozinha enquanto você continuar vendendo do mesmo jeito</h2>
+    <p>Você já sabe atender bem. Isso nunca foi o problema.</p>
+    <p>O problema é continuar esperando que indicação e post solto resolvam algo que só se resolve com estrutura.</p>
+    <p>Um Instagram que atrai quem está pronto pra fechar, e um modelo de venda que transforma isso em faturamento previsível, não em sorte mensal.</p>
+    <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o método completo por R$14,90</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026. Todos os direitos reservados.
+  </div>
+</footer>
+
+</body>
+</html>
