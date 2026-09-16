@@ -953,12 +953,16 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   </div>
 
   <!-- [ PLACEHOLDER: estas 4 perguntas são de exemplo. Assim que você me passar as perguntas reais, eu troco o texto e as opções de cada uma. ] -->
+  <!-- QUALIFICAÇÃO DO LEAD:
+       data-qualifica="1"    -> opção que QUALIFICA (pergunta 1)
+       data-desqualifica="1" -> opção que DESQUALIFICA (pergunta 2)
+       Se trocar o texto das opções, mantenha esses atributos nas opções certas. -->
 
   <div class="step active" data-step="1">
     <h2>Qual é a sua situação hoje?</h2>
     <div class="opcoes">
       <button class="opcao" type="button">Sou recém-formada, ainda não tenho consultório</button>
-      <button class="opcao" type="button">Já atendo, mas quero crescer</button>
+      <button class="opcao" type="button" data-qualifica="1">Já atendo, mas quero crescer</button>
       <button class="opcao" type="button">Estou migrando de carreira pra nutrição clínica</button>
       <button class="opcao" type="button">Ainda sou estudante</button>
     </div>
@@ -970,7 +974,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
       <button class="opcao" type="button">Consultório físico</button>
       <button class="opcao" type="button">Atendimento online</button>
       <button class="opcao" type="button">Ambos (online e presencial)</button>
-      <button class="opcao" type="button">Ainda não comecei a atender</button>
+      <button class="opcao" type="button" data-desqualifica="1">Ainda não comecei a atender</button>
     </div>
   </div>
 
@@ -1036,7 +1040,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
     <p><strong>Bônus exclusivo liberado:</strong>Além do livro online, receba uma aula exclusiva sobre "Como atrair seguidores qualificados com estratégias de tráfego pago" liberada junto na descrição do grupo.</p>
   </div>
 
-  <a href="https://chat.whatsapp.com/BTEUk6qy1Nu4P6zzo3K5yn" class="btn-whatsapp" onclick="if (typeof fbq === 'function') { fbq('track', 'Lead'); }">
+  <a href="https://chat.whatsapp.com/BTEUk6qy1Nu4P6zzo3K5yn" class="btn-whatsapp" onclick="dispararLead()">
     <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.55-13.58ZM12.05 18.4h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 1 1 5.6 3.09Zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.35-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.34h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.6s.7 1.86.8 2c.1.13 1.38 2.11 3.36 2.96.47.2.83.32 1.12.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.86.11-.94-.04-.09-.18-.14-.38-.24Z"/></svg>
     Clique aqui para entrar no grupo
   </a>
@@ -1067,6 +1071,15 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
 </div>
 
 <script>
+  // Status de qualificação do lead (definido pelas respostas do quiz)
+  window.leadQualificado = false;
+
+  function dispararLead(){
+    if (window.leadQualificado && typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
+  }
+
   function goToQuiz(e){
     if(e) e.preventDefault();
     document.getElementById('sales-page').style.display = 'none';
@@ -1077,6 +1090,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
     document.getElementById('quiz-page').classList.remove('active');
     document.getElementById('resultado-page').classList.add('active');
     window.scrollTo(0,0);
+    // ViewContent dispara para todo mundo que chega na página do vídeo
     if (typeof fbq === 'function') { fbq('track', 'ViewContent'); }
   }
 </script>
@@ -1086,6 +1100,12 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   const totalSteps = document.querySelectorAll('.step').length;
   let current = 1;
   const respostas = {};
+
+  // Regras de qualificação:
+  // q1ok -> marcou a opção com data-qualifica="1" na pergunta 1
+  // q2ok -> NÃO marcou a opção com data-desqualifica="1" na pergunta 2
+  let q1ok = false;
+  let q2ok = true;
 
   const progressFill = document.getElementById('progress-fill');
   const progressLabel = document.getElementById('progress-label');
@@ -1107,6 +1127,10 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
         step.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
         opcao.classList.add('selecionada');
         respostas[step.dataset.step] = opcao.textContent;
+
+        if (step.dataset.step === '1') q1ok = opcao.dataset.qualifica === '1';
+        if (step.dataset.step === '2') q2ok = opcao.dataset.desqualifica !== '1';
+        window.leadQualificado = q1ok && q2ok;
 
         setTimeout(() => {
           if(current < totalSteps){
