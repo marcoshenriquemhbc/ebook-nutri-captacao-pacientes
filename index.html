@@ -992,6 +992,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   <div class="step" data-step="4">
     <h2>Qual seu faturamento hoje com consultório?</h2>
     <div class="opcoes">
+      <button class="opcao" type="button" data-desqualifica="1">Ainda não faturo</button>
       <button class="opcao" type="button">Até R$2.000/mês</button>
       <button class="opcao" type="button">De R$2.000 a R$3.000/mês</button>
       <button class="opcao" type="button">Até R$3.000/mês</button>
@@ -1104,8 +1105,10 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   // Regras de qualificação:
   // q1ok -> marcou a opção com data-qualifica="1" na pergunta 1
   // q2ok -> NÃO marcou a opção com data-desqualifica="1" na pergunta 2
+  // q4ok -> NÃO marcou a opção com data-desqualifica="1" na pergunta 4
   let q1ok = false;
   let q2ok = true;
+  let q4ok = true;
 
   const progressFill = document.getElementById('progress-fill');
   const progressLabel = document.getElementById('progress-label');
@@ -1130,7 +1133,8 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
 
         if (step.dataset.step === '1') q1ok = opcao.dataset.qualifica === '1';
         if (step.dataset.step === '2') q2ok = opcao.dataset.desqualifica !== '1';
-        window.leadQualificado = q1ok && q2ok;
+        if (step.dataset.step === '4') q4ok = opcao.dataset.desqualifica !== '1';
+        window.leadQualificado = q1ok && q2ok && q4ok;
 
         setTimeout(() => {
           if(current < totalSteps){
