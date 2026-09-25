@@ -558,6 +558,14 @@
 
   .instrucao{font-size:13.5px;color:var(--ink-soft);margin-top:14px;}
 
+  /* ---------- PÁGINA OBRIGADO SIMPLES (LEAD DESQUALIFICADO) ---------- */
+  #obrigado-page{
+    display:none;
+    margin:0;background:var(--paper);color:#000;font-family:var(--sans);
+    font-size:17px;line-height:1.6;
+  }
+  #obrigado-page.active{display:block;}
+
   /* ---------- MODAL CONSULTORIA GRATUITA ---------- */
   .modal-overlay{
     display:none;
@@ -990,7 +998,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
       <button class="opcao" type="button">Sou recém-formada, ainda não tenho consultório</button>
       <button class="opcao" type="button" data-qualifica="1">Já atendo, mas quero crescer</button>
       <button class="opcao" type="button">Estou migrando de carreira pra nutrição clínica</button>
-      <button class="opcao" type="button">Ainda sou estudante</button>
+      <button class="opcao" type="button" data-desqualifica="1">Ainda sou estudante</button>
     </div>
   </div>
 
@@ -1108,6 +1116,28 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
 
 </div>
 
+<div id="obrigado-page">
+
+
+<div class="res-wrap">
+  <div class="qualificada-card">
+    <span class="selo">QUALIFICADA ✓</span>
+    <p class="q-titulo">Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
+  </div>
+
+  <a href="https://drive.google.com/file/d/1X3W2EFhha8IzPFpMl3GOK8iFwiY6XdzY/view" class="btn btn-gold btn-block" target="_blank" rel="noopener" style="margin-bottom:24px;">Baixar o e-book agora</a>
+
+  <p class="instrucao" style="margin-bottom:14px;">Aproveita e me segue no Instagram pra receber mais conteúdos de valor toda semana:</p>
+
+  <a href="https://www.instagram.com/marcoshenrique.me/" class="btn-instagram" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+    Me siga no Instagram
+  </a>
+</div>
+
+
+</div>
+
 <script>
   // Status de qualificação do lead (definido pelas respostas do quiz)
   window.leadQualificado = false;
@@ -1131,6 +1161,13 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
     // ViewContent dispara para todo mundo que chega na página do vídeo
     if (typeof fbq === 'function') { fbq('track', 'ViewContent'); }
   }
+  function goToObrigadoSimples(){
+    // Lead desqualificado: nenhum evento de pixel é disparado aqui,
+    // pra não otimizar as campanhas do Meta Ads pra esse perfil.
+    document.getElementById('quiz-page').classList.remove('active');
+    document.getElementById('obrigado-page').classList.add('active');
+    window.scrollTo(0,0);
+  }
 </script>
 
 <script>
@@ -1146,6 +1183,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   let q1ok = false;
   let q2ok = true;
   let q4ok = true;
+  let estudanteDesqualifica = false;
 
   const progressFill = document.getElementById('progress-fill');
   const progressLabel = document.getElementById('progress-label');
