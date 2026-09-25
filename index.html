@@ -558,6 +558,52 @@
 
   .instrucao{font-size:13.5px;color:var(--ink-soft);margin-top:14px;}
 
+  /* ---------- MODAL CONSULTORIA GRATUITA ---------- */
+  .modal-overlay{
+    display:none;
+    position:fixed;inset:0;
+    background:rgba(30,42,34,0.6);
+    z-index:1000;
+    align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .modal-overlay.active{display:flex;}
+  .modal-card{
+    background:#fff;
+    border-radius:14px;
+    max-width:440px;width:100%;
+    padding:34px 28px;
+    box-shadow:0 24px 60px rgba(30,42,34,0.28);
+    text-align:center;
+  }
+  .modal-selo{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;
+    color:var(--ink);background:var(--gold-soft);border:1px solid var(--gold);
+    padding:6px 14px;border-radius:14px;margin-bottom:16px;
+  }
+  .modal-card h2{font-family:var(--serif);font-size:22px;line-height:1.35;margin:0 0 14px;color:#000;}
+  .modal-card p{color:#000;font-size:15px;line-height:1.55;margin:0 0 26px;}
+  .btn-consultoria{
+    display:block;width:100%;
+    background:var(--gold);color:var(--ink);
+    font-family:var(--sans);font-weight:700;font-size:16.5px;
+    padding:17px 20px;border-radius:8px;text-decoration:none;
+    box-shadow:0 12px 28px rgba(176,141,83,0.4);
+    margin-bottom:14px;
+    border:none;cursor:pointer;
+  }
+  .btn-consultoria:hover{background:var(--gold-soft);}
+  .btn-ebook-secundario{
+    display:block;width:100%;
+    background:none;color:var(--ink-soft);
+    font-family:var(--sans);font-weight:500;font-size:14px;
+    padding:10px;text-decoration:underline;border:none;cursor:pointer;
+  }
+  @media(max-width:480px){
+    .modal-card{padding:26px 20px;}
+    .modal-card h2{font-size:19px;}
+  }
+
 </style>
 
 <!-- Meta Pixel Code -->
@@ -986,7 +1032,15 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   </div>
 </div>
 
-
+<div class="modal-overlay" id="modal-consultoria">
+  <div class="modal-card">
+    <span class="modal-selo">CONSULTORIA LIBERADA</span>
+    <h2>Parabéns! Você foi selecionada para uma consultoria gratuita comigo</h2>
+    <p>Pelo seu perfil, você está qualificada para receber uma consultoria gratuita de 40 minutos sobre captação de novos pacientes, direto comigo. Na consultoria eu também vou te enviar um material exclusivo. Pra saber como funciona, clique no botão abaixo.</p>
+    <a href="#" id="btn-consultoria-link" class="btn-consultoria" target="_blank" rel="noopener">Saber mais sobre a consultoria gratuita</a>
+    <button type="button" class="btn-ebook-secundario" onclick="fecharModalEBaixarEbook()">Finalizar e baixar o e-book</button>
+  </div>
+</div>
 
 
 </div>
@@ -1122,6 +1176,8 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
           if(current < totalSteps){
             current++;
             renderStep();
+          } else if (step.dataset.step === '4' && q1ok && q4ok) {
+            abrirModalConsultoria();
           } else {
             progressFill.style.width = '100%';
             goToResultado();
@@ -1134,6 +1190,19 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   btnVoltar.addEventListener('click', () => {
     if(current > 1){ current--; renderStep(); }
   });
+
+  function abrirModalConsultoria(){
+    const numero = '5521965944207';
+    const msg = 'Olá Marcos Henrique! Fiz o quiz do e-book e fui selecionada para a consultoria gratuita de 40 minutos sobre captação de novos pacientes. Quero saber mais e agendar!';
+    document.getElementById('btn-consultoria-link').href = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
+    document.getElementById('modal-consultoria').classList.add('active');
+  }
+
+  function fecharModalEBaixarEbook(){
+    document.getElementById('modal-consultoria').classList.remove('active');
+    progressFill.style.width = '100%';
+    goToResultado();
+  }
 
   renderStep();
 
