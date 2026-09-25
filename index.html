@@ -1036,7 +1036,8 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   <div class="modal-card">
     <span class="modal-selo">CONSULTORIA LIBERADA</span>
     <h2>Parabéns! Você foi selecionada para uma consultoria gratuita comigo</h2>
-    <p>Pelo seu perfil, você está qualificada para receber uma consultoria gratuita de 40 minutos sobre captação de novos pacientes, direto comigo. Na consultoria eu também vou te enviar um material exclusivo. Pra saber como funciona, clique no botão abaixo.</p>
+    <p>Pelo seu perfil, você está qualificada para receber uma consultoria gratuita de 40 minutos sobre captação de novos pacientes, direto comigo. Meu nome é Marcos Henrique, sou especialista em Marketing Digital certificado pela DigitalMarketer (EUA), com mais de 10 anos de mercado, mais de 100 clientes atendidos e mais de R$3 milhões investidos em anúncios.</p>
+    <p>O objetivo dessa consultoria é entender o seu desafio atual para captar pacientes e te entregar um plano personalizado (além de te enviar esse meu livro online exclusivo). Pra agendar, clique no botão abaixo e converse diretamente comigo...</p>
     <a href="#" id="btn-consultoria-link" class="btn-consultoria" target="_blank" rel="noopener">Saber mais sobre a consultoria gratuita</a>
     <button type="button" class="btn-ebook-secundario" onclick="fecharModalEBaixarEbook()">Finalizar e baixar o e-book</button>
   </div>
@@ -1063,7 +1064,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   </div>
 
   <div style="position:relative;width:100%;max-width:360px;margin:0 auto;padding-top:177.78%;border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(30,42,34,0.15);">
-    <iframe src="https://player.iaatende.click/player.html?v=https%3A%2F%2Fveturbe.iaatende.click%2FVsl%2520Mh%2520Nutri%2520ok.mp4&bar_color=%232563eb&smart_progress=0&mute_text=Toque+para+ativar+o+som&autoplay=1&resume=1" style="position:absolute;inset:0;width:100%;height:100%;border:none;" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+    <iframe src="https://player.iaatende.click/player.html?v=https%3A%2F%2Fveturbe.iaatende.click%2FVsl%2520Mh%2520Nutri%2520ok.mp4&bar_color=%232563eb&smart_progress=0&mute_text=Toque+para+ativar+o+som&autoplay=1&resume=1&muted=0" style="position:absolute;inset:0;width:100%;height:100%;border:none;" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
   </div>
 
   <div class="aviso-bonus">
@@ -1193,9 +1194,10 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
 
   function abrirModalConsultoria(){
     const numero = '5521965944207';
-    const msg = 'Olá Marcos Henrique! Fiz o quiz do e-book e fui selecionada para a consultoria gratuita de 40 minutos sobre captação de novos pacientes. Quero saber mais e agendar!';
+    const msg = 'Olá Marcos Henrique! Fiz o quiz do e-book e fui selecionada para a consultoria gratuita sobre captação de novos pacientes. Quero agendar. Pode falar agora?';
     document.getElementById('btn-consultoria-link').href = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
     document.getElementById('modal-consultoria').classList.add('active');
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
   }
 
   function fecharModalEBaixarEbook(){
