@@ -1206,7 +1206,10 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
         opcao.classList.add('selecionada');
         respostas[step.dataset.step] = opcao.textContent;
 
-        if (step.dataset.step === '1') q1ok = opcao.dataset.qualifica === '1';
+        if (step.dataset.step === '1') {
+          q1ok = opcao.dataset.qualifica === '1';
+          estudanteDesqualifica = opcao.dataset.desqualifica === '1';
+        }
         if (step.dataset.step === '2') q2ok = opcao.dataset.desqualifica !== '1';
         if (step.dataset.step === '4') q4ok = opcao.dataset.desqualifica !== '1';
         window.leadQualificado = q1ok && q2ok && q4ok;
@@ -1217,6 +1220,8 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
             renderStep();
           } else if (step.dataset.step === '4' && q1ok && q4ok) {
             abrirModalConsultoria();
+          } else if (estudanteDesqualifica || !q2ok || !q4ok) {
+            goToObrigadoSimples();
           } else {
             progressFill.style.width = '100%';
             goToResultado();
