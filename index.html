@@ -20,7 +20,6 @@
     --gold-soft:#D9C39B;
     --hair:#D8D2C2;
     --red:#A5473A;
-    --whatsapp:#25D366;
     --serif: 'Lora', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
@@ -98,9 +97,6 @@
     transition:background .15s ease;
   }
   .btn:hover{background:var(--ink);}
-  .btn-block{display:block;width:100%;text-align:center;}
-  .btn-gold{background:var(--gold);color:var(--ink);}
-  .btn-gold:hover{background:var(--gold-soft);}
 
   .hero-cover{
     margin-top:40px;
@@ -112,10 +108,6 @@
     border-radius:6px;
     box-shadow:14px 18px 0 rgba(30,42,34,0.08), 0 24px 40px rgba(30,42,34,0.18);
     transform:rotate(-4deg);
-  }
-  .placeholder-flag{
-    text-align:center;font-family:var(--sans);font-size:12px;color:#000;
-    margin-top:12px;
   }
 
   /* ---------- METRICS ---------- */
@@ -172,23 +164,6 @@
   .quem-section .beneficio .titulo{color:var(--gold-soft);}
   .quem-section .texto-dourado{color:var(--gold-soft);}
 
-  /* ---------- CHECK BULLETS ---------- */
-  ul.check{list-style:none;margin:0;padding:0;}
-  ul.check li{
-    position:relative;padding:11px 0 11px 30px;border-bottom:1px solid var(--hair);
-    color:#000;
-  }
-  ul.check li:last-child{border-bottom:none;}
-  ul.check li:before{
-    content:"";position:absolute;left:0;top:15px;width:14px;height:14px;
-    border:2px solid var(--sage-deep);border-radius:50%;
-  }
-  ul.check li:after{
-    content:"";position:absolute;left:4.5px;top:18.5px;width:5px;height:8px;
-    border-right:2px solid var(--sage-deep);border-bottom:2px solid var(--sage-deep);
-    transform:rotate(45deg);
-  }
-
   /* ---------- BENEFÍCIOS CARDS ---------- */
   .beneficios{display:flex;flex-direction:column;gap:0;}
   .beneficio{
@@ -239,7 +214,6 @@
   }
   .oferta-box .valor-legenda{font-size:14px;color:#c9d0c9;margin-bottom:26px;}
   .oferta-box .btn{width:100%;max-width:380px;}
-  .oferta-box .seguro{font-size:12px;color:#9aa79c;margin-top:14px;}
 
   .recebe-list{list-style:none;margin:0;padding:0;}
   .recebe-list li{
@@ -248,38 +222,7 @@
   }
   .recebe-list li:last-child{border-bottom:none;}
 
-  /* ---------- FAQ ---------- */
-  details{border-bottom:1px solid var(--hair);padding:16px 0;}
-  details summary{
-    font-family:var(--serif);font-size:18px;font-weight:700;cursor:pointer;color:#000;
-    list-style:none;position:relative;padding-right:24px;
-  }
-  details summary::-webkit-details-marker{display:none;}
-  details summary:after{
-    content:"+";position:absolute;right:0;top:-2px;font-size:22px;color:var(--sage-deep);
-  }
-  details[open] summary:after{content:"–";}
-  details p{margin-top:12px;color:#000;}
-
-  /* ---------- FOOTER / CTA FINAL ---------- */
-  .fechamento{
-    background:var(--sage-deep);color:var(--paper);padding:72px 0;text-align:center;
-  }
-  .fechamento h2{color:var(--paper);font-size:30px;line-height:1.35;max-width:26ch;margin:0 auto 26px;}
-  .fechamento p{color:#d9e2d9;max-width:52ch;margin:0 auto 16px;line-height:1.6;}
-  .fechamento p:last-of-type{margin-bottom:32px;}
-  .fechamento .btn{background:var(--ink);}
-  .fechamento .btn:hover{background:#0f1712;}
-
   footer{padding:32px 0;text-align:center;font-size:12px;color:#000;}
-
-  .garantia-selo{
-    max-width:420px;margin:0 auto 22px;
-    background:var(--paper-2);border:2px solid var(--gold);border-radius:16px;
-    box-shadow:0 16px 32px rgba(30,42,34,0.15);
-    padding:20px;
-  }
-  .garantia-selo img{width:100%;height:auto;display:block;border-radius:8px;}
 
   .autor-box{display:flex;gap:32px;align-items:center;}
   .res-autor-box{
@@ -288,8 +231,6 @@
     background:var(--sage-deep);
   }
   .res-autor-box h2{color:var(--paper);}
-  .res-autor-box .autor-texto p{color:var(--paper);}
-  .res-autor-box .autor-texto p.eyebrow{color:var(--sage-deep);}
   .autor-foto{
     flex-shrink:0;width:130px;height:130px;border-radius:50%;
     object-fit:cover;
@@ -323,7 +264,6 @@
   }
   .check-recebe li:last-child{border-bottom:none;}
   .recebe-imagem{flex-shrink:0;display:flex;justify-content:center;}
-  .recebe-section .placeholder-flag{color:#9aa79c;}
 
   /* ---------- DEPOIMENTOS ---------- */
   .depoimento-video{
@@ -339,22 +279,6 @@
   @media(max-width:700px){
     .recebe-card{flex-direction:column;padding:26px 20px;}
     .recebe-imagem{order:-1;}
-  }
-
-  .bonus-row{
-    display:flex;align-items:center;gap:22px;margin-top:28px;
-  }
-  .bonus-card{
-    flex:1;background:#26332B;border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;padding:28px 26px;
-  }
-  .bonus-card h3{color:var(--paper);font-size:18px;line-height:1.4;margin-bottom:18px;font-weight:600;}
-  .bonus-plus{
-    flex-shrink:0;color:var(--gold);font-size:28px;font-weight:700;
-  }
-  @media(max-width:700px){
-    .bonus-row{flex-direction:column;}
-    .bonus-plus{transform:rotate(90deg);margin:4px 0;}
   }
 
   @media(max-width:640px){
@@ -375,241 +299,10 @@
     .oferta-box{padding:32px 20px;}
     .oferta-box .valor-final{font-size:40px;}
     .compare .col{padding:22px 18px;}
-    .fechamento{padding:52px 0;}
-    .fechamento h2{font-size:24px;}
-    details summary{font-size:16.5px;}
   }
   @media(max-width:380px){
     .hero h1{font-size:24px;}
     .metrics .card{flex:1 1 100%;}
-  }
-
-
-  /* ---------- QUIZ SCREEN ---------- */
-  #quiz-page{
-    display:none;
-    margin:0;background:var(--paper);color:#000;font-family:var(--sans);
-    font-size:17px;line-height:1.6;min-height:100vh;
-    align-items:center;justify-content:center;padding:24px;
-  }
-  #quiz-page.active{display:flex;}
-
-  .quiz-card{
-    width:100%;max-width:560px;background:#fff;border:1px solid var(--hair);
-    border-radius:14px;box-shadow:0 16px 40px rgba(30,42,34,0.10);
-    padding:36px 30px;
-  }
-  .badge{
-    display:inline-block;font-size:13px;font-weight:600;color:var(--sage-deep);
-    background:var(--gold-soft);border:1px solid var(--gold);padding:6px 14px;
-    border-radius:20px;margin-bottom:18px;white-space:nowrap;
-  }
-  h1{font-family:var(--serif);font-size:24px;line-height:1.35;margin:0 0 12px;}
-  .intro p{color:#000;margin:0 0 8px;}
-  .progress-wrap{margin:26px 0 30px;}
-  .progress-bar{height:6px;background:var(--paper-2);border-radius:4px;overflow:hidden;}
-  .progress-fill{height:100%;background:var(--sage-deep);width:0%;transition:width .3s ease;}
-  .progress-label{font-size:12.5px;color:var(--ink-soft);margin-top:8px;}
-
-  .step{display:none;}
-  .step.active{display:block;}
-  .step h2{font-family:var(--serif);font-size:20px;margin:0 0 18px;}
-  .opcoes{display:flex;flex-direction:column;gap:10px;}
-  .opcao{
-    display:block;width:100%;text-align:left;background:var(--paper);
-    border:1.5px solid var(--hair);border-radius:8px;padding:14px 16px;
-    font-family:var(--sans);font-size:15.5px;color:#000;cursor:pointer;
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .opcao:hover{border-color:var(--sage);}
-  .opcao.selecionada{border-color:var(--sage-deep);background:var(--gold-soft);}
-
-  .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
-  .voltar{
-    font-family:var(--sans);font-size:14px;color:var(--ink-soft);
-    background:none;border:none;cursor:pointer;padding:8px 0;
-  }
-  .voltar[disabled]{visibility:hidden;}
-  .avancar{
-    display:inline-block;background:var(--sage-deep);color:var(--paper);
-    font-family:var(--sans);font-weight:600;font-size:15px;padding:13px 26px;
-    border-radius:6px;border:none;cursor:pointer;
-  }
-  .avancar[disabled]{opacity:.4;cursor:not-allowed;}
-  .avancar:hover:not([disabled]){background:var(--ink);}
-
-  @media(max-width:480px){
-    .quiz-card{padding:26px 20px;}
-    h1{font-size:21px;}
-  }
-
-
-  /* ---------- RESULTADO SCREEN ---------- */
-  #resultado-page{
-    display:none;
-    margin:0;background:var(--paper);color:#000;font-family:var(--sans);
-    font-size:17px;line-height:1.6;
-  }
-  #resultado-page.active{display:block;}
-
-  .res-wrap{max-width:460px;margin:0 auto;padding:40px 22px 60px;text-align:center;}
-
-  .badge-topo{
-    display:inline-block;font-size:13px;font-weight:600;color:var(--sage-deep);
-    background:var(--gold-soft);border:1px solid var(--gold);padding:6px 14px;
-    border-radius:20px;margin-bottom:18px;
-  }
-  h1{font-family:var(--serif);font-size:24px;line-height:1.35;margin:0 0 26px;}
-
-  /* ---------- VÍDEO FORMATO REELS ---------- */
-  .video-frame{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    border-radius:16px;
-    overflow:hidden;
-    background:linear-gradient(160deg,var(--sage) 0%, var(--sage-deep) 60%, var(--ink) 100%);
-    box-shadow:0 20px 44px rgba(30,42,34,0.22);
-  }
-  .video-frame iframe{
-    position:absolute;top:0;left:0;width:100%;height:100%;border:0;
-  }
-  .video-frame wistia-player{
-    position:absolute;top:0;left:0;width:100%;height:100%;
-  }
-  .qualificada-card{
-    background:var(--sage-deep);
-    border-radius:12px;
-    padding:16px 18px;
-    text-align:left;
-    margin-bottom:16px;
-  }
-  .qualificada-card .selo{
-    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
-    color:var(--ink);background:var(--gold-soft);padding:4px 10px;border-radius:14px;
-    margin-bottom:8px;
-  }
-  .qualificada-card .q-titulo{
-    color:#fff;font-family:var(--serif);font-size:17px;line-height:1.3;margin:0;
-  }
-  .qualificada-card .q-titulo strong{color:var(--gold-soft);}
-
-  .vip-box{
-    background:#fff;border:1.5px solid var(--hair);
-    border-radius:12px;padding:16px 18px;text-align:left;margin-bottom:16px;
-  }
-  .vip-box p{
-    color:var(--ink);font-weight:700;font-size:15px;line-height:1.4;margin:0;
-  }
-  .video-cta-box{
-    background:var(--gold-soft);border:1px solid var(--gold);
-    border-radius:12px;padding:16px 18px;text-align:left;margin-bottom:16px;
-  }
-  .video-cta-box p{
-    color:var(--ink);font-family:var(--serif);font-weight:700;font-size:17px;
-    line-height:1.35;margin:0;
-  }
-  /* ---------- BANNER AULA BÔNUS ---------- */
-  .aviso-bonus{
-    display:flex;align-items:center;gap:12px;text-align:left;
-    background:#fff;border:1px solid var(--hair);border-radius:10px;
-    padding:14px 16px;margin:26px 0 16px;
-    box-shadow:0 6px 16px rgba(30,42,34,0.05);
-  }
-  .aviso-bonus .icone{
-    flex-shrink:0;width:38px;height:38px;border-radius:50%;
-    background:var(--sage-deep);color:var(--gold-soft);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .aviso-bonus p{margin:0;font-size:13.5px;color:#000;line-height:1.4;}
-  .aviso-bonus strong{display:block;font-size:14.5px;color:#000;margin-bottom:2px;}
-
-  /* ---------- BOTÃO WHATSAPP ---------- */
-  .btn-whatsapp{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    width:100%;background:var(--whatsapp);color:#fff;
-    font-family:var(--sans);font-weight:600;font-size:16.5px;
-    padding:16px 20px;border-radius:8px;text-decoration:none;
-    box-shadow:0 8px 20px rgba(37,211,102,0.3);
-  }
-  .btn-whatsapp:hover{background:#1fb955;}
-  .btn-whatsapp svg{width:22px;height:22px;flex-shrink:0;}
-
-  .btn-instagram{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    width:100%;color:#fff;
-    background:linear-gradient(45deg, #feda75 0%, #fa7e1e 20%, #d62976 45%, #962fbf 70%, #4f5bd5 100%);
-    font-family:var(--sans);font-weight:600;font-size:15px;
-    padding:13px 18px;border-radius:8px;text-decoration:none;
-    border:none;margin-top:12px;
-    box-shadow:0 8px 20px rgba(214,41,118,0.28);
-  }
-  .btn-instagram:hover{opacity:.92;}
-  .btn-instagram svg{width:19px;height:19px;flex-shrink:0;}
-
-  .btn-proposta{
-    display:flex;align-items:center;justify-content:center;
-    width:100%;background:var(--sage-deep);color:#fff;
-    font-family:var(--sans);font-weight:600;font-size:15px;
-    padding:14px 18px;border-radius:8px;text-decoration:none;
-    margin-top:20px;
-  }
-  .btn-proposta:hover{background:var(--ink);}
-
-  .instrucao{font-size:13.5px;color:var(--ink-soft);margin-top:14px;}
-
-  /* ---------- PÁGINA OBRIGADO SIMPLES (LEAD DESQUALIFICADO) ---------- */
-  #obrigado-page{
-    display:none;
-    margin:0;background:var(--paper);color:#000;font-family:var(--sans);
-    font-size:17px;line-height:1.6;
-  }
-  #obrigado-page.active{display:block;}
-
-  /* ---------- MODAL CONSULTORIA ---------- */
-  .modal-overlay{
-    display:none;
-    position:fixed;inset:0;
-    background:rgba(30,42,34,0.6);
-    z-index:1000;
-    align-items:center;justify-content:center;
-    padding:20px;
-  }
-  .modal-overlay.active{display:flex;}
-  .modal-card{
-    background:#fff;
-    border-radius:14px;
-    max-width:440px;width:100%;
-    padding:34px 28px;
-    box-shadow:0 24px 60px rgba(30,42,34,0.28);
-    text-align:center;
-  }
-  .modal-selo{
-    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;
-    color:var(--ink);background:var(--gold-soft);border:1px solid var(--gold);
-    padding:6px 14px;border-radius:14px;margin-bottom:16px;
-  }
-  .modal-card h2{font-family:var(--serif);font-size:22px;line-height:1.35;margin:0 0 14px;color:#000;}
-  .modal-card p{color:#000;font-size:15px;line-height:1.55;margin:0 0 26px;}
-  .btn-consultoria{
-    display:block;width:100%;
-    background:var(--gold);color:var(--ink);
-    font-family:var(--sans);font-weight:700;font-size:16.5px;
-    padding:17px 20px;border-radius:8px;text-decoration:none;
-    box-shadow:0 12px 28px rgba(176,141,83,0.4);
-    margin-bottom:14px;
-    border:none;cursor:pointer;
-  }
-  .btn-consultoria:hover{background:var(--gold-soft);}
-  .btn-ebook-secundario{
-    display:block;width:100%;
-    background:none;color:var(--ink-soft);
-    font-family:var(--sans);font-weight:500;font-size:14px;
-    padding:10px;text-decoration:underline;border:none;cursor:pointer;
-  }
-  @media(max-width:480px){
-    .modal-card{padding:26px 20px;}
-    .modal-card h2{font-size:19px;}
   }
 
 </style>
@@ -634,8 +327,6 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
 
 </head>
 <body>
-<div id="sales-page">
-
 
 <!-- ================= HERO ================= -->
 <section class="hero">
@@ -644,7 +335,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
     <h1>Como atrair e fidelizar pacientes todo mês pelo Instagram e virar a nutri de referência da sua cidade sem precisar atender todos os dias</h1>
     <p class="sub">Esse é o método mais eficaz que transforma desconhecido em paciente de acompanhamento que te paga todo mês, e ainda sem precisar recomeçar a agenda do zero toda semana.</p>
     <p class="reforco">Você não precisa apenas de mais seguidores, você precisa de pacientes qualificados com previsibilidade.</p>
-    <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero o livro online agora</a>
+    <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o livro online agora</a>
 
     <div class="hero-cover">
       <img class="cover-img" src="https://raw.githubusercontent.com/marcoshenriquemhbc/ebook-nutri-captacao-pacientes/refs/heads/main/Livro%20online%201.png" alt="Livro online Instagram pra Nutricionista">
@@ -732,7 +423,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
     </div>
 
     <div style="text-align:center;margin-top:40px;">
-      <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero o livro online agora</a>
+      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o livro online agora</a>
     </div>
   </div>
 </section>
@@ -815,7 +506,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
       <p>Você não vai terminar a leitura com mais uma lista de dicas soltas.</p>
       <p>Vai terminar com um roteiro que dá pra aplicar direto na sua bio, no seu feed e na próxima conversa de direct.</p>
       <div style="text-align:center;margin-top:30px;">
-        <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero o livro online agora</a>
+        <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o livro online agora</a>
       </div>
     </div>
   </div>
@@ -876,7 +567,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
       <p>O método não é sobre virar vendedora agressiva. É sobre mostrar o trabalho que você já faz bem, de um jeito que naturalmente leva a pessoa a querer marcar consulta. Vender fica mais fácil quando você para de vender consulta avulsa e passa a oferecer acompanhamento, porque aí a conversa é sobre cuidado contínuo, não sobre empurrar produto.</p>
     </div>
     <div style="text-align:center;margin-top:34px;">
-      <a href="#quiz" class="btn" onclick="goToQuiz(event)">Quero o livro online agora</a>
+      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener">Quero o livro online agora</a>
     </div>
   </div>
 </section>
@@ -958,7 +649,7 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
         <li>✓ Livro online completo em PDF, com o passo a passo de estruturação do Instagram e o roteiro de condução até o fechamento do plano de acompanhamento</li>
         <li>✓ Acesso imediato + bonus no grupo vip.</li>
       </ul>
-      <a href="#quiz" class="btn" onclick="goToQuiz(event)" style="margin-top:26px;">Quero o livro online agora</a>
+      <a href="https://pay.hotmart.com/X107538059T?checkoutMode=10" class="btn" target="_blank" rel="noopener" style="margin-top:26px;">Quero o livro online agora</a>
     </div>
   </div>
 </section>
@@ -969,288 +660,5 @@ src="https://www.facebook.com/tr?id=682535077399333&ev=PageView&noscript=1"
   </div>
 </footer>
 
-
-</div>
-
-<div id="quiz-page">
-
-
-<div class="quiz-card">
-  <div class="intro" id="intro-block">
-    <span class="badge">OFERTA POR TEMPO LIMITADO</span>
-    <p><strong>Para continuar, responda rapidinho <span id="qtd-perguntas">4 perguntas</span> abaixo. 60 segundos.</strong></p>
-  </div>
-
-  <div class="progress-wrap">
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    <div class="progress-label" id="progress-label">Pergunta 1 de 4</div>
-  </div>
-
-  <!-- [ PLACEHOLDER: estas 4 perguntas são de exemplo. Assim que você me passar as perguntas reais, eu troco o texto e as opções de cada uma. ] -->
-  <!-- QUALIFICAÇÃO DO LEAD:
-       data-qualifica="1"    -> opção que QUALIFICA (pergunta 1)
-       data-desqualifica="1" -> opção que DESQUALIFICA (pergunta 2)
-       Se trocar o texto das opções, mantenha esses atributos nas opções certas. -->
-
-  <div class="step active" data-step="1">
-    <h2>Qual é a sua situação hoje?</h2>
-    <div class="opcoes">
-      <button class="opcao" type="button">Sou recém-formada, ainda não tenho consultório</button>
-      <button class="opcao" type="button" data-qualifica="1">Já atendo, mas quero crescer</button>
-      <button class="opcao" type="button">Estou migrando de carreira pra nutrição clínica</button>
-      <button class="opcao" type="button" data-desqualifica="1">Ainda sou estudante</button>
-    </div>
-  </div>
-
-  <div class="step" data-step="2">
-    <h2>Como você atende hoje?</h2>
-    <div class="opcoes">
-      <button class="opcao" type="button">Consultório físico</button>
-      <button class="opcao" type="button">Atendimento online</button>
-      <button class="opcao" type="button">Ambos (online e presencial)</button>
-      <button class="opcao" type="button" data-desqualifica="1">Ainda não comecei a atender</button>
-    </div>
-  </div>
-
-  <div class="step" data-step="3">
-    <h2>Qual seu maior desafio hoje pra ter mais pacientes?</h2>
-    <div class="opcoes">
-      <button class="opcao" type="button">Dependo de indicação</button>
-      <button class="opcao" type="button">Posto no Instagram e não vira consulta</button>
-      <button class="opcao" type="button">Não sei precificar meus planos</button>
-      <button class="opcao" type="button">Não sei conduzir a conversa no direct até o fechamento</button>
-      <button class="opcao" type="button">Tenho vergonha de parecer que estou vendendo</button>
-    </div>
-  </div>
-
-  <div class="step" data-step="4">
-    <h2>Qual seu faturamento hoje com consultório?</h2>
-    <div class="opcoes">
-      <button class="opcao" type="button" data-desqualifica="1">Ainda não faturo</button>
-      <button class="opcao" type="button">Até R$2.000/mês</button>
-      <button class="opcao" type="button">De R$2.000 a R$3.000/mês</button>
-      <button class="opcao" type="button">Até R$3.000/mês</button>
-      <button class="opcao" type="button">Entre R$3.000 e R$8.000/mês</button>
-      <button class="opcao" type="button">Acima de R$8.000/mês</button>
-    </div>
-  </div>
-
-  <div class="nav-row">
-    <button class="voltar" id="btn-voltar" disabled>← Voltar</button>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-consultoria">
-  <div class="modal-card">
-    <span class="modal-selo">CONSULTORIA LIBERADA</span>
-    <h2>Parabéns! Você foi selecionada para uma consultoria exclusiva comigo</h2>
-    <p>Pelo seu perfil, você está qualificada para receber uma consultoria exclusiva de 40 minutos sobre captação de novos pacientes, direto comigo. Meu nome é Marcos Henrique, sou especialista em Marketing Digital certificado pela DigitalMarketer (EUA), com mais de 10 anos de mercado, mais de 100 clientes atendidos e mais de R$3 milhões investidos em anúncios.</p>
-    <p>O objetivo dessa consultoria é entender o seu desafio atual para captar pacientes e te entregar um plano personalizado (além de te enviar esse meu livro online). Pra agendar, clique no botão abaixo e converse diretamente comigo...</p>
-    <a href="#" id="btn-consultoria-link" class="btn-consultoria" target="_blank" rel="noopener">Saber mais sobre a consultoria</a>
-    <button type="button" class="btn-ebook-secundario" onclick="fecharModalEBaixarEbook()">Continuar para o livro online</button>
-  </div>
-</div>
-
-
-</div>
-
-<div id="resultado-page">
-
-
-<div class="res-wrap">
-  <div class="qualificada-card">
-    <span class="selo">QUALIFICADA ✓</span>
-    <p class="q-titulo">Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
-  </div>
-
-  <div class="vip-box">
-    <p>O link do livro online e da aula bônus está fixado na descrição do meu grupo VIP.</p>
-  </div>
-
-  <div class="video-cta-box">
-    <p>Assista o vídeo de um minuto abaixo...</p>
-  </div>
-
-  <div style="position:relative;width:100%;max-width:360px;margin:0 auto;padding-top:177.78%;border-radius:10px;overflow:hidden;box-shadow:0 16px 36px rgba(30,42,34,0.15);">
-    <iframe src="https://player.iaatende.click/player.html?v=https%3A%2F%2Fveturbe.iaatende.click%2FVsl%2520Mh%2520Nutri%2520ok.mp4&bar_color=%232563eb&smart_progress=0&mute_text=Toque+para+ativar+o+som&autoplay=1&resume=1&muted=0" style="position:absolute;inset:0;width:100%;height:100%;border:none;" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-  </div>
-
-  <div class="aviso-bonus">
-    <div class="icone">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
-    <p><strong>Bônus exclusivo liberado:</strong>Além do livro online, receba uma aula exclusiva sobre "Como atrair seguidores qualificados com estratégias de tráfego pago" liberada junto na descrição do grupo.</p>
-  </div>
-
-  <a href="https://chat.whatsapp.com/BTEUk6qy1Nu4P6zzo3K5yn" class="btn-whatsapp" onclick="dispararLead()">
-    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.55-13.58ZM12.05 18.4h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 1 1 5.6 3.09Zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.35-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.34h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.6s.7 1.86.8 2c.1.13 1.38 2.11 3.36 2.96.47.2.83.32 1.12.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.86.11-.94-.04-.09-.18-.14-.38-.24Z"/></svg>
-    Clique aqui para entrar no grupo
-  </a>
-
-  <a href="https://www.instagram.com/marcoshenrique.me/" class="btn-instagram" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
-    Me siga no Instagram
-  </a>
-
-  <p class="instrucao">Acesse esses materiais e participe dessa comunidade. Receba mais conteúdos de valor como esses que vão te ajudar a aumentar seu faturamento como nutricionista.</p>
-
-  <a href="https://wa.me/5521965944207?text=Ol%C3%A1%20Marcos%20Henrique%2C%20gostaria%20de%20conversar%20e%20receber%20uma%20proposta%20personalizada%20para%20voc%C3%AA%20me%20ajudar%20com%20a%20minha%20capta%C3%A7%C3%A3o%20de%20novos%20pacientes.%20Pode%20falar%20agora%3F" class="btn-proposta" target="_blank" rel="noopener">
-    Receba uma proposta personalizada
-  </a>
-  <p class="instrucao">Se você quer que eu te ajude pessoalmente a implementar uma estratégia de captação de novos pacientes que realmente funciona, clique no botão acima e converse comigo.</p>
-
-  <div class="res-autor-box">
-    <img class="autor-foto" src="https://cdn.jsdelivr.net/gh/marcoshenriquemhbc/ebook-nutri-captacao-pacientes@main/WhatsApp%20Image%202026-07-04%20at%206.52.54%20PM.jpeg" alt="Marcos Henrique">
-    <div class="autor-texto">
-      <p class="eyebrow" style="margin-bottom:12px;">QUEM É MARCOS HENRIQUE?</p>
-      <p>Marcos Henrique é carioca, cristão, especialista em Marketing Digital certificado pela DigitalMarketer (EUA) e agora mergulhando em IA aplicada a marketing digital e vendas online.</p>
-      <p>✅ +10 anos de mercado<br>✅ +100 clientes atendidos<br>✅ +R$3 milhões investidos em anúncios</p>
-      <p>Há mais de 10 anos prestando serviços de marketing digital para pequenas e médias empresas.</p>
-      <p style="margin-bottom:0;">É criador do Sistema POC™ (Posicionamento, Oferta, Campanha), metodologia própria de estruturação de oferta, o Funil de AutoQualificação™, e atua como consultor tendo nutricionistas como um dos principais nichos com que trabalha.</p>
-    </div>
-  </div>
-</div>
-
-
-</div>
-
-<div id="obrigado-page">
-
-
-<div class="res-wrap">
-  <div class="qualificada-card">
-    <span class="selo">QUALIFICADA ✓</span>
-    <p class="q-titulo">Parabéns, nutri!<br>Você está <strong>qualificada</strong> pra receber esse material premium.</p>
-  </div>
-
-  <a href="https://drive.google.com/file/d/1X3W2EFhha8IzPFpMl3GOK8iFwiY6XdzY/view" class="btn btn-gold btn-block" target="_blank" rel="noopener" style="margin-bottom:24px;">Acessar o e-book agora</a>
-
-  <p class="instrucao" style="margin-bottom:14px;">Aproveita e me segue no Instagram pra receber mais conteúdos de valor toda semana:</p>
-
-  <a href="https://www.instagram.com/marcoshenrique.me/" class="btn-instagram" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
-    Me siga no Instagram
-  </a>
-</div>
-
-
-</div>
-
-<script>
-  // Status de qualificação do lead (definido pelas respostas do quiz)
-  window.leadQualificado = false;
-
-  function dispararLead(){
-    if (window.leadQualificado && typeof fbq === 'function') {
-      fbq('track', 'Lead');
-    }
-  }
-
-  function goToQuiz(e){
-    if(e) e.preventDefault();
-    document.getElementById('sales-page').style.display = 'none';
-    document.getElementById('quiz-page').classList.add('active');
-    window.scrollTo(0,0);
-  }
-  function goToResultado(){
-    document.getElementById('quiz-page').classList.remove('active');
-    document.getElementById('resultado-page').classList.add('active');
-    window.scrollTo(0,0);
-    // ViewContent dispara para todo mundo que chega na página do vídeo
-    if (typeof fbq === 'function') { fbq('track', 'ViewContent'); }
-  }
-  function goToObrigadoSimples(){
-    // Lead desqualificado: nenhum evento de pixel é disparado aqui,
-    // pra não otimizar as campanhas do Meta Ads pra esse perfil.
-    document.getElementById('quiz-page').classList.remove('active');
-    document.getElementById('obrigado-page').classList.add('active');
-    window.scrollTo(0,0);
-  }
-</script>
-
-<script>
-
-  const totalSteps = document.querySelectorAll('.step').length;
-  let current = 1;
-  const respostas = {};
-
-  // Regras de qualificação:
-  // q1ok -> marcou a opção com data-qualifica="1" na pergunta 1
-  // q2ok -> NÃO marcou a opção com data-desqualifica="1" na pergunta 2
-  // q4ok -> NÃO marcou a opção com data-desqualifica="1" na pergunta 4
-  let q1ok = false;
-  let q2ok = true;
-  let q4ok = true;
-  let estudanteDesqualifica = false;
-
-  const progressFill = document.getElementById('progress-fill');
-  const progressLabel = document.getElementById('progress-label');
-  const btnVoltar = document.getElementById('btn-voltar');
-  document.getElementById('qtd-perguntas').textContent = totalSteps + ' perguntas';
-
-  function renderStep(){
-    document.querySelectorAll('.step').forEach(s => {
-      s.classList.toggle('active', Number(s.dataset.step) === current);
-    });
-    progressFill.style.width = ((current - 1) / totalSteps * 100) + '%';
-    progressLabel.textContent = 'Pergunta ' + current + ' de ' + totalSteps;
-    btnVoltar.disabled = current === 1;
-  }
-
-  document.querySelectorAll('.step').forEach(step => {
-    step.querySelectorAll('.opcao').forEach(opcao => {
-      opcao.addEventListener('click', () => {
-        step.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
-        opcao.classList.add('selecionada');
-        respostas[step.dataset.step] = opcao.textContent;
-
-        if (step.dataset.step === '1') {
-          q1ok = opcao.dataset.qualifica === '1';
-          estudanteDesqualifica = opcao.dataset.desqualifica === '1';
-        }
-        if (step.dataset.step === '2') q2ok = opcao.dataset.desqualifica !== '1';
-        if (step.dataset.step === '4') q4ok = opcao.dataset.desqualifica !== '1';
-        window.leadQualificado = q1ok && q2ok && q4ok;
-
-        setTimeout(() => {
-          if(current < totalSteps){
-            current++;
-            renderStep();
-          } else if (step.dataset.step === '4' && q1ok && q4ok) {
-            abrirModalConsultoria();
-          } else if (estudanteDesqualifica || !q2ok || !q4ok) {
-            goToObrigadoSimples();
-          } else {
-            progressFill.style.width = '100%';
-            goToResultado();
-          }
-        }, 300);
-      });
-    });
-  });
-
-  btnVoltar.addEventListener('click', () => {
-    if(current > 1){ current--; renderStep(); }
-  });
-
-  function abrirModalConsultoria(){
-    const numero = '5521965944207';
-    const msg = 'Olá Marcos Henrique! Fiz o quiz do e-book e fui selecionada para a consultoria sobre captação de novos pacientes. Quero agendar. Pode falar agora?';
-    document.getElementById('btn-consultoria-link').href = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
-    document.getElementById('modal-consultoria').classList.add('active');
-    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-  }
-
-  function fecharModalEBaixarEbook(){
-    document.getElementById('modal-consultoria').classList.remove('active');
-    progressFill.style.width = '100%';
-    goToResultado();
-  }
-
-  renderStep();
-
-</script>
 </body>
 </html>
